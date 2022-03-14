@@ -18,14 +18,51 @@ public class Rooms {
     this.west = null;
   }
 
+
+  public String getDescription () {
+    return description;
+  }
+
+  public String getName () {
+    return name;
+  }
+
+  public void setNorth(Rooms north) {
+    this.north = north;
+  }
+
+  public void setSouth(Rooms south) {
+    this.south = south;
+  }
+
+  public void setEast(Rooms east) {
+    this.east = east;
+  }
+
+  public Rooms getEast() {
+    return east;
+  }
+
+  public Rooms getNorth() {
+    return north;
+  }
+
+  public Rooms getSouth(){
+    return south;
+  }
+
+  public Rooms getWest(){
+    return west;
+  }
+
+  public void setWest(Rooms west) {
+    this.west = west;
+  }
+
+
   public String toString(){
     return name + "/" + description + "/" + north + "/" + south + "/" + east + "/" + west;
   }
 
-  //Create 9 rooms as objects with entrances that connect to different rooms
-
-  //Type connection to the room with array = room1.addDirection("south", rooms[0]);
-
-  //
 
 }
