@@ -38,12 +38,18 @@ public class Adventure {
     room9.setNorth(room6);
   }
 
-
-  public void roomDescription() {
-    System.out.println(currentLocation.getDescription());
+  public void roomName() {
     System.out.println(currentLocation.getName());
   }
 
+  public void roomDescription() {
+    System.out.println(currentLocation.getDescription());
+  }
+
+
+  public void intro() {
+    System.out.println();
+  }
 
   public void helpMenu() {
     System.out.println("exit\t- Exit the game");
@@ -57,48 +63,48 @@ public class Adventure {
   }
 
   public void goNorth() {
-    System.out.println("going north");
-    if (currentLocation.getNorth() == null)
+    if (currentLocation.getNorth() == null) {
       System.out.println("You cannot go this way");
-    else
+    } else
       currentLocation = currentLocation.getNorth();
-    if (currentLocation.getDiscovered() == false){
+    roomName();
+    if (currentLocation.getDiscovered() == false) {
       areaDiscovered();
       roomDescription();
     }
   }
 
   public void goSouth() {
-    System.out.println("going South");
     if (currentLocation.getSouth() == null) {
       System.out.println("You cannot go this way");
     } else
       currentLocation = currentLocation.getSouth();
-    if (currentLocation.getDiscovered() == false){
+    roomName();
+    if (currentLocation.getDiscovered() == false) {
       areaDiscovered();
       roomDescription();
     }
   }
 
   public void goEast() {
-    System.out.println("going east");
     if (currentLocation.getEast() == null) {
       System.out.println("You cannot go this way");
     } else
       currentLocation = currentLocation.getEast();
-    if (currentLocation.getDiscovered() == false){
+    roomName();
+    if (currentLocation.getDiscovered() == false) {
       areaDiscovered();
       roomDescription();
     }
   }
 
   public void goWest() {
-    System.out.println("going west");
     if (currentLocation.getWest() == null) {
       System.out.println("You cannot go this way");
     } else
       currentLocation = currentLocation.getWest();
-    if (currentLocation.getDiscovered() == false){
+    roomName();
+    if (currentLocation.getDiscovered() == false) {
       areaDiscovered();
       roomDescription();
     }
@@ -109,6 +115,7 @@ public class Adventure {
     System.out.println("\n Press ENTER to continue");
     roomRoutes();
     String next = scanner.nextLine();
+    intro();
     boolean run = true;
     while (run) {
       System.out.println("What is your next move?");
