@@ -44,7 +44,7 @@ public class Adventure {
   }
 
   //Title Card text art
-  public void displayTitleCard(){
+  public void displayTitleCard() {
     System.out.println("\n\n\u001B[34m███████╗███████╗ ██████╗ █████╗ ██████╗ ███████╗    ███████╗██████╗  ██████╗ ███╗   ███╗     █████╗ ██╗   ██╗██████╗  ██████╗ ██████╗  █████╗" +
         "\n██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝    ██╔════╝██╔══██╗██╔═══██╗████╗ ████║    ██╔══██╗██║   ██║██╔══██╗██╔═══██╗██╔══██╗██╔══██╗" +
         "\n█████╗  ███████╗██║     ███████║██████╔╝█████╗      █████╗  ██████╔╝██║   ██║██╔████╔██║    ███████║██║   ██║██████╔╝██║   ██║██████╔╝███████║" +
@@ -54,7 +54,7 @@ public class Adventure {
   }
 
   //End Card text art
-  public void displayEndCard(){
+  public void displayEndCard() {
     System.out.println("\u001B[32m████████╗██╗  ██╗ █████╗ ███╗   ██╗██╗  ██╗    ██╗   ██╗ ██████╗ ██╗   ██╗\n" +
         "╚══██╔══╝██║  ██║██╔══██╗████╗  ██║██║ ██╔╝    ╚██╗ ██╔╝██╔═══██╗██║   ██║\n" +
         "   ██║   ███████║███████║██╔██╗ ██║█████╔╝      ╚████╔╝ ██║   ██║██║   ██║\n" +
@@ -80,19 +80,35 @@ public class Adventure {
   }
 
   //look command to display the room description to the user
-  public void displayLookDescription(){
+  public void displayLookDescription() {
     System.out.println("You are in" + currentLocation.getDescription());
   }
 
   //Intro to the games backstory and setup
-  public void displayIntro(){
+  public void displayIntro() {
     System.out.println("\u001B[32m***************************************[BACKSTORY]*****************************************************\u001B[0m");
-    System.out.println("You are an engine mechanic aboard the galactic excavation and discovery vehicle The Aurora.\nThe mission, codenamed 'Degassi' is funded by the trans-governmental corporation Alterra.\nAlterra owns 61% of all space travel assets in the milky way galaxy, and they also happen to be your employer. \nThe Degassi mission is slated to last approximately four years. \nits main objective is to research and excavate newly discovered planet 6784X, for future habitation. \nWith no real family or relationship back on earth, you signed on for the generous mission salary. \nThe Aurora is a massive ship equipped for both land and water-based missions, and houses 265 crewmembers in total. \nThe Degassi mission has recently passed its one year mark, and you are currently slingshotting around planet 4546B. \nAn ocean planet consisting of 91.1% water. \nOne day you are called to the Captains Quarters, to report the weekly fuel consumption rate. \nIn the middle of your report, the ship suddenly starts to shake violently, and you lose your footing, stumbling to the ground. \nRed lights starts blinking, as the intercom sounds 'ALERT: SHIP UNDER ATTACK. TWO MAIN ENGINES LOST. EVACUATE TO THE ESCAPE PODS'. \nSuddenly a small explosion happens inside the room, and as you and the captain are storming towards the exit, a single wall panel rips lose. \nit flies straight towards you. In an instant, everything turns dark...");
+    System.out.println("You are an engine mechanic aboard the galactic excavation and discovery vehicle The Aurora." +
+        "\nThe mission, codenamed 'Degassi' is funded by the trans-governmental corporation Alterra." +
+        "\nAlterra owns 61% of all space travel assets in the milky way galaxy, and they also happen to be your employer." +
+        "\nThe Degassi mission is slated to last approximately four years." +
+        "\nits main objective is to research and excavate newly discovered planet 6784X, for future habitation." +
+        "\nWith no real family or relationship back on earth, you signed on for the generous mission salary." +
+        "\nThe Aurora is a massive ship equipped for both land and water-based missions, and houses 265 crewmembers in total. " +
+        "\nThe Degassi mission has recently passed its one year mark, and you are currently slingshotting around planet 4546B. " +
+        "\nAn ocean planet consisting of 91.1% water. \nOne day you are called to the Captains Quarters, to report the weekly fuel consumption rate. " +
+        "\nIn the middle of your report, the ship suddenly starts to shake violently, and you lose your footing, stumbling to the ground. " +
+        "\nRed lights starts blinking, as the intercom sounds 'ALERT: SHIP UNDER ATTACK. TWO MAIN ENGINES LOST. EVACUATE TO THE ESCAPE PODS'. " +
+        "\nSuddenly a small explosion happens inside the room, and as you and the captain are storming towards the exit, a single wall panel rips lose. " +
+        "\nit flies straight towards you. In an instant, everything turns dark...");
   }
 
   //Intro to the game, basically room 1 description but with a wakeup start sentence
   public void displayWakeUp() {
-    System.out.println("You awake in a room partly on fire. Small pieces of debris is falling from holes in the ceiling.\nAround you are scattered furniture, displaced in the crash. A work table, some vials on the floor,\nand a Alterra poster on the wall with a picture of the newest model of Alterra excavation machine.\nYou are slightly confused, and the last thing you remember is dropping to the planet surface in the Alterra Space cruiser.\nYou see doors to the south and east.");
+    System.out.println("You awake in a room partly on fire. Small pieces of debris is falling from holes in the ceiling." +
+        "\nAround you are scattered furniture, displaced in the crash. A work table, some vials on the floor," +
+        "\nand a Alterra poster on the wall with a picture of the newest model of Alterra excavation machine." +
+        "\nYou are slightly confused, and the last thing you remember is dropping to the planet surface in the Alterra Space cruiser." +
+        "\nYou see doors to the south and east.");
   }
 
   //display of the HELP menu
@@ -120,10 +136,11 @@ public class Adventure {
     } else {
       currentLocation = currentLocation.getNorth();
     }
-    if (currentLocation.getDiscovered() == false) {
+    if (currentLocation.getDiscovered()) { //Do not display room name when direction is null
+      displayRoomName();
+    }else {
       markAreaDiscovered();
       displayRoomDescription();
-    }if(currentLocation.getNorth() != null){ //Do not display room name when direction is null
       displayRoomName();
     }
   }
@@ -132,13 +149,14 @@ public class Adventure {
   public void goSouth() {
     if (currentLocation.getSouth() == null) {
       System.out.println("You cannot go this way");
-    } else{
+    } else {
       currentLocation = currentLocation.getSouth();
     }
-    if (currentLocation.getDiscovered() == false) {
+    if (currentLocation.getDiscovered()) { //Do not display room name when direction is null
+      displayRoomName();
+    }else {
       markAreaDiscovered();
       displayRoomDescription();
-    }if(currentLocation.getNorth() != null){ //Do not display room name when direction is null
       displayRoomName();
     }
   }
@@ -150,10 +168,11 @@ public class Adventure {
     } else {
       currentLocation = currentLocation.getEast();
     }
-    if (currentLocation.getDiscovered() == false) {
+    if (currentLocation.getDiscovered()) { //Do not display room name when direction is null
+      displayRoomName();
+    }else {
       markAreaDiscovered();
       displayRoomDescription();
-    }if(currentLocation.getNorth() != null){ //Do not display room name when direction is null
       displayRoomName();
     }
   }
@@ -162,13 +181,14 @@ public class Adventure {
   public void goWest() {
     if (currentLocation.getWest() == null) {
       System.out.println("You cannot go this way");
-    } else{
+    } else {
       currentLocation = currentLocation.getWest();
     }
-    if (currentLocation.getDiscovered() == false) {
+    if (currentLocation.getDiscovered()) { //Do not display room name when direction is null
+      displayRoomName();
+    }else {
       markAreaDiscovered();
       displayRoomDescription();
-    }if(currentLocation.getNorth() != null){ //Do not display room name when direction is null
       displayRoomName();
     }
   }
@@ -177,17 +197,16 @@ public class Adventure {
   public void game() {
     roomRoutes();
     displayTitleCard();
-    System.out.println("\nPress ENTER to continue");
+    System.out.println("\nPress 'ENTER' to continue");
     String next = scanner.nextLine();
-    System.out.println("These are the following commands you can use, during the adventure");
-    displayHelpMenu();
+    System.out.println("Type 'help' at any stage during the adventure to get a list of commands.");
+    System.out.println("\nPress 'ENTER' to continue");
+    next = scanner.nextLine();
     displayIntro();
-    System.out.println("\nType 'wake up' to start the adventure");
-    String wakeUp = scanner.nextLine();
-    switch (wakeUp) {
-      case "wake up":
-        displayWakeUp();
-        break;}
+    System.out.println("\nPress 'ENTER' to wake up and start the adventure");
+    next = scanner.nextLine();
+    displayWakeUp();
+    displayRoomName();
     boolean run = true;
     while (run) {
       System.out.println("\n\nWhat is your next move?");
@@ -223,7 +242,8 @@ public class Adventure {
         default:
           System.out.println("Invalid input");
       }
-    } displayEndCard();
+    }
+    displayEndCard();
   }
 
   public static void main(String[] args) {
