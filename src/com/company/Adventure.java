@@ -11,7 +11,7 @@ public class Adventure {
   Rooms room2 = new Rooms("Mess Hall", " the massive mess hall, made to feed the 240 workers aboard the Alterra Starliner Aurora.\nOnly a few of the bright fluorecent lights, light up the grey and white walls of the mess hall,\nand reflect in the water that is slowly filling the room. Once filled with perfectly formed lines of long-tables and benches,\nthe room is now a chaos of floating furniture and patches of fire.\nYou see doors to the west and east.");
   Rooms room3 = new Rooms("Armory", " a medium sized room, with water reaching to your knees. The room is tightly packed with shelves that are now partly empty,\nas the crates that once occupied them are now all around you. Contrary to its name, you dont see any actual weapons,\nbut mostly tools used for excavation and research. The room is slightly dark, as your only light-source is a standing lamp,\nnow tipped over and lying submerged in water, scattering the light.\nYou see doors to the west and south.");
   Rooms room4 = new Rooms("Garage ", " the giant garage, with cars, excavation-machines and boats are hanging from the ceiling.\nSome of the bigger vehicles have fallen to the ground, but somehow the garage is weirdly intact.\nA small electric fire obscures one of the exits. There is a giant gate at the end of the room, for getting the vehicles out,\nonce on planet-side. You know it leads to the Auroras stern ramp.\nThe gates is slowly leaking water through the crack where to two doors meet.\nYou see doors to the north and south.");
-  Rooms room5 = new Rooms("Reactor Room", " the massive reactor room, onto the bridge. The bridge is suspended in the middle of the massive room,\noverlooking the abyss that is now the almost filled reactor room. The water almost reaches the bridge.\nFour pillars stretches from the ceiling way above you, and disappear into the depths below.\nWhen you look closely, you can see the shadow of something big, slithering around in the water below you,\nbut you cant quite make out what it is.\nThe way you came in, seems to be the only exit.");
+  Rooms room5 = new Rooms("Reactor Room", " the massive reactor room, onto the bridge. The bridge is suspended in the middle of the massive room,\noverlooking the abyss that is now the almost filled reactor room. The water almost reaches the bridge.\nFour pillars stretches from the ceiling way above you, and disappear into the depths below.\nWhen you look closely, you can see the shadow of something big, slithering around in the water below you,\nbut you cant quite make out what it is.\nThe way you came in, seems to be the only way out.");
   Rooms room6 = new Rooms("Engine Room", ", what you instantly recognize as the engine room, since this is where you used to work.\nIts a low hanging ceiling, and you have to duck some places to get around,\nbecause of the interwoven tubes that go from the engines to the sub-engines. The room is mostly intact,\nwith the exception of small fires here and there, and one of the sub-engines leaking coolant.\nYou see a door to the north and south.");
   Rooms room7 = new Rooms("Sleeping Quarters", " the sleeping quarters. This is just one room of the many that makes up the crew quarters.\nSmall fires are scattered across the room, and a medium sizes hole has been made in the southern wall,\nmaking the neighbour room visible. As Alterra doesnt allow many personal items to bring along on excavation voyages,\nthe only things floating around in the ankle high water are small tools, hygiene items, papers, etc.\nYou see doors to the north and east.");
   Rooms room8 = new Rooms("Science Lab", " a small room, with a single, one-person submarine suspended from the ceiling in the middle of the room.\nYou have never visited the lab prior, since it has always been off limits. Glass shards from vials fills the floor,\nand microscopes and other research tools, are scattered amongst the flipped worktables and whiteboards.\nYou can see equations etched onto the wall-embedded worktables.\nThe ceiling lights are weirdly still fully functioning, covering the lab in a bright defused, white light.\nYou see doors to the west, north and east.");
@@ -19,9 +19,6 @@ public class Adventure {
 
   //Set the current location to the first room which is where the user starts the game
   Rooms currentLocation = room1;
-
-  //create boolean for
-  boolean discovered = currentLocation.getDiscovered();
 
   //route all rooms to one another
   public void roomRoutes() {
@@ -79,7 +76,7 @@ public class Adventure {
 
   //display the room description when the user enters a specif room for the first time
   public void displayRoomDescription() {
-    System.out.print("You walk into" + currentLocation.getDescription());
+    System.out.println("You walk into" + currentLocation.getDescription());
   }
 
   //look command to display the room description to the user
@@ -113,14 +110,15 @@ public class Adventure {
   //Get user to go north if there is a room in that direction, if not it tells the user that they can't go that way
   public void goNorth() {
     if (currentLocation.getNorth() == null) {
-      System.out.println("There seems not to be a way out that way");
+      System.out.println("You cannot go this way");
     } else {
       currentLocation = currentLocation.getNorth();
-      displayRoomName();
     }
-    if (discovered == false) {
+    if (currentLocation.getDiscovered() == false) {
       markAreaDiscovered();
       displayRoomDescription();
+    }if(currentLocation.getNorth() != null){ //Do not display room name when direction is null
+      displayRoomName();
     }
   }
 
@@ -130,10 +128,12 @@ public class Adventure {
       System.out.println("You cannot go this way");
     } else{
       currentLocation = currentLocation.getSouth();
-    displayRoomName();}
-    if (discovered == false) {
+    }
+    if (currentLocation.getDiscovered() == false) {
       markAreaDiscovered();
       displayRoomDescription();
+    }if(currentLocation.getNorth() != null){ //Do not display room name when direction is null
+      displayRoomName();
     }
   }
 
@@ -143,10 +143,12 @@ public class Adventure {
       System.out.println("You cannot go this way");
     } else {
       currentLocation = currentLocation.getEast();
-    displayRoomName();}
-    if (discovered == false) {
+    }
+    if (currentLocation.getDiscovered() == false) {
       markAreaDiscovered();
       displayRoomDescription();
+    }if(currentLocation.getNorth() != null){ //Do not display room name when direction is null
+      displayRoomName();
     }
   }
 
@@ -156,10 +158,12 @@ public class Adventure {
       System.out.println("You cannot go this way");
     } else{
       currentLocation = currentLocation.getWest();
-    displayRoomName();}
-    if (discovered == false) {
+    }
+    if (currentLocation.getDiscovered() == false) {
       markAreaDiscovered();
       displayRoomDescription();
+    }if(currentLocation.getNorth() != null){ //Do not display room name when direction is null
+      displayRoomName();
     }
   }
 
