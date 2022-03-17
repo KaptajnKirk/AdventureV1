@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Rooms {
 
   boolean discovered;
@@ -7,8 +10,11 @@ public class Rooms {
   private Rooms south;
   private Rooms east;
   private Rooms west;
-  String description;
-  String name;
+  private String description;
+  private String name;
+  private String item;
+
+
 
   public Rooms (String name, String description){
     this.name = name;
@@ -18,6 +24,7 @@ public class Rooms {
     this.east = null;
     this.west = null;
     this.discovered = false;
+    this.item = item;
   }
 
 

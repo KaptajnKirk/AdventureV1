@@ -52,33 +52,33 @@ public class uxPrint {
   public static void displayEndCard() throws InterruptedException {
     newPage();
     System.out.println("\u001B[32m████████╗██╗  ██╗ █████╗ ███╗   ██╗██╗  ██╗    ██╗   ██╗ ██████╗ ██╗   ██╗");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("╚══██╔══╝██║  ██║██╔══██╗████╗  ██║██║ ██╔╝    ╚██╗ ██╔╝██╔═══██╗██║   ██║");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("   ██║   ███████║███████║██╔██╗ ██║█████╔╝      ╚████╔╝ ██║   ██║██║   ██║");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("   ██║   ██╔══██║██╔══██║██║╚██╗██║██╔═██╗       ╚██╔╝  ██║   ██║██║   ██║");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("   ██║   ██║  ██║██║  ██║██║ ╚████║██║  ██╗       ██║   ╚██████╔╝╚██████╔╝");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝       ╚═╝    ╚═════╝  ╚═════╝");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("███████╗ ██████╗ ██████╗     ██████╗ ██╗      █████╗ ██╗   ██╗██╗███╗   ██╗ ██████╗");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("██╔════╝██╔═══██╗██╔══██╗    ██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝██║████╗  ██║██╔════╝");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("█████╗  ██║   ██║██████╔╝    ██████╔╝██║     ███████║ ╚████╔╝ ██║██╔██╗ ██║██║  ███╗");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("██╔══╝  ██║   ██║██╔══██╗    ██╔═══╝ ██║     ██╔══██║  ╚██╔╝  ██║██║╚██╗██║██║   ██║");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("██║     ╚██████╔╝██║  ██║    ██║     ███████╗██║  ██║   ██║   ██║██║ ╚████║╚██████╔╝");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("╚═╝      ╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝ \u001B[0m");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println();
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println();
-    Thread.sleep(500);
+    Thread.sleep(100);
   }
 
   //Intro to the game, basically room 1 description but with a wakeup start sentence
@@ -164,10 +164,14 @@ public class uxPrint {
     System.out.println("You are in" + description);
   }
 
+  public static void check(String room){
+    System.out.println("Player is in: " + room);
+  }
+
   public static void printer(String text) throws InterruptedException {
     for (int i = 0; i <= text.length()-1; i++){
       System.out.print(text.charAt(i));
-      Thread.sleep(20);
+      Thread.sleep(0);
     }
     System.out.println();
   }

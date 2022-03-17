@@ -4,38 +4,16 @@ import java.util.Scanner;
 
 public class Adventure {
   //call map and scanner
-
-  private Music music;
   Map map = new Map();
+  Player player1 = new Player(map.getRoom1());
   Scanner scanner = new Scanner(System.in);
-
-  //Change rooms discover boolean to true after the user has entered a room
-  public void markAreaDiscovered() {
-    map.getPlayerLocation().setDiscovered(true);
-  }
-
-  //Go command which takes any of the 4 directions
-  public void goDirection(Rooms direction) throws InterruptedException {
-    if (direction == null) {
-      uxPrint.directionNull();
-    } else {
-      map.setPlayerLocation(direction);
-    }
-    if (map.getPlayerLocation().getDiscovered()) { //Do not display room name when direction is null
-      uxPrint.displayRoomName(map.getPlayerLocation().getName());
-    } else {
-      markAreaDiscovered();
-      uxPrint.displayRoomDescription(map.getPlayerLocation().getDescription());
-      uxPrint.displayRoomName(map.getPlayerLocation().getName());
-    }
-  }
+  private Music music;
 
   //The main game method with while loop that runs until user types exit
   public void game() throws InterruptedException {
     music = new Music();
     uxPrint ux = new uxPrint();
     music.playMusic();
-    map.roomRoutes();
     uxPrint.displayTitleCard();
     uxPrint.enterPromt();
     String next = scanner.nextLine();
@@ -49,7 +27,7 @@ public class Adventure {
     next = scanner.nextLine();
     uxPrint.newPage();
     uxPrint.displayWakeUp();
-    uxPrint.displayRoomName(map.getPlayerLocation().getName());
+    uxPrint.displayRoomName(player1.getCurrentPosition().getName());
     boolean run = true;
     while (run) {
       uxPrint.nextMovePrompt();
@@ -60,11 +38,11 @@ public class Adventure {
           uxPrint.exitPrompt();
           run = false;
         }
-        case "look" -> uxPrint.displayLookDescription(map.getPlayerLocation().getDescription());
-        case "go north", "north", "n" -> goDirection(map.getPlayerLocation().getNorth());
-        case "go south", "south", "s" -> goDirection(map.getPlayerLocation().getSouth());
-        case "go east", "east", "e" -> goDirection(map.getPlayerLocation().getEast());
-        case "go west", "west", "w" -> goDirection(map.getPlayerLocation().getWest());
+        case "look" -> uxPrint.displayLookDescription(player1.getCurrentPosition().getDescription());
+        case "go north", "north", "n" -> player1.goDirection(player1.getCurrentPosition().getNorth());
+        case "go south", "south", "s" -> player1.goDirection(player1.getCurrentPosition().getSouth());
+        case "go east", "east", "e" -> player1.goDirection(player1.getCurrentPosition().getEast());
+        case "go west", "west", "w" -> player1.goDirection(player1.getCurrentPosition().getWest());
         case "go" -> uxPrint.incompleteDirection();
         case "help" -> uxPrint.displayHelpMenu();
         default -> uxPrint.invalidInput();

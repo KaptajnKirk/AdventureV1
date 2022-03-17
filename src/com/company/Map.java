@@ -12,41 +12,32 @@ public class Map {
   private Rooms room7 = new Rooms("Sleeping Quarters", " the sleeping quarters. This is just one room of the many that makes up the crew quarters.\nSmall fires are scattered across the room, and a medium sizes hole has been made in the southern wall,\nmaking the neighbour room visible. As Alterra doesnt allow many personal items to bring along on excavation voyages,\nthe only things floating around in the ankle high water are small tools, hygiene items, papers, etc.\nYou see doors to the north and east.");
   private Rooms room8 = new Rooms("Science Lab", " a small room, with a single, one-person submarine suspended from the ceiling in the middle of the room.\nYou have never visited the lab prior, since it has always been off limits. Glass shards from vials fills the floor,\nand microscopes and other research tools, are scattered amongst the flipped worktables and whiteboards.\nYou can see equations etched onto the wall-embedded worktables.\nThe ceiling lights are weirdly still fully functioning, covering the lab in a bright defused, white light.\nYou see doors to the west, north and east.");
   private Rooms room9 = new Rooms("Submarine Bay", " a massive hall, with Alterra's signature expedition submarine, 'The Cyclops' taking up most of the hall.\nThe submarine has fallen out of its ceiling mount, and now partly blocks the entrance pool below it.\nOn the bottom of the entrance pool, there is a gate that opens up, as an exit for submarines.\nAround the room, there are one-man submarines socketed into the walls, where they used to charge.\nSome of them fell out during the crash, and now partly occupy the bay floor.\nYou should be able to take a one-man submarine through the gate, provided you can get it open.\nYou see doors to the north and west.");
-  private Rooms playerLocation;
+
 
 
   public Map() {
+    room1.setDiscovered(true); //As it is the room that you spawn in
+    room1.setEast(room2);
+    room1.setSouth(room4);
+    room2.setWest(room1);
+    room2.setEast(room3);
+    room3.setSouth(room6);
+    room3.setWest(room2);
+    room4.setNorth(room1);
+    room4.setSouth(room7);
+    room5.setSouth(room8);
+    room6.setSouth(room9);
+    room6.setNorth(room3);
+    room7.setNorth(room4);
+    room7.setEast(room8);
+    room8.setWest(room7);
+    room8.setNorth(room5);
+    room8.setEast(room9);
+    room9.setWest(room8);
+    room9.setNorth(room6);
      }
 
-     //route all rooms together
-    public void roomRoutes () {
-      playerLocation = room1; //player starting position
-      room1.setDiscovered(true); //As it is the room that you spawn in
-      room1.setEast(room2);
-      room1.setSouth(room4);
-      room2.setWest(room1);
-      room2.setEast(room3);
-      room3.setSouth(room6);
-      room3.setWest(room2);
-      room4.setNorth(room1);
-      room4.setSouth(room7);
-      room5.setSouth(room8);
-      room6.setSouth(room9);
-      room6.setNorth(room3);
-      room7.setNorth(room4);
-      room7.setEast(room8);
-      room8.setWest(room7);
-      room8.setNorth(room5);
-      room8.setEast(room9);
-      room9.setWest(room8);
-      room9.setNorth(room6);
-  }
-
-  public Rooms getPlayerLocation() {
-    return playerLocation;
-  }
-
-  public void setPlayerLocation(Rooms playerLocation){
-    this.playerLocation = playerLocation;
+  public Rooms getRoom1() {
+    return room1;
   }
 }
