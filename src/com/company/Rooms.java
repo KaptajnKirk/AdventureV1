@@ -68,10 +68,4 @@ public class Rooms {
   public void setDiscovered(boolean discovered){
     this.discovered = discovered;
   }
-
-  public String toString(){
-    return name + "/" + description + "/" + north + "/" + south + "/" + east + "/" + west;
-  }
-
-
 }

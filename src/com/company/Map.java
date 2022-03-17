@@ -2,6 +2,7 @@ package com.company;
 
 public class Map {
 
+  //Create all rooms needed
   private Rooms room1 = new Rooms("Captains quarters", " a room partly on fire. Small pieces of debris is falling from holes in the ceiling.\nAround you are scattered furniture, displaced in the crash. A work table, some vials on the floor,\nand a Alterra poster on the wall with a picture of the newest model of Alterra excavation machine.\nYou are slightly confused, and the last thing you remember is dropping to the planet surface in the Alterra Space cruiser.\nYou see doors to the south and east.");
   private Rooms room2 = new Rooms("Mess Hall", " the massive mess hall, made to feed the 240 workers aboard the Alterra Starliner Aurora.\nOnly a few of the bright fluorecent lights, light up the grey and white walls of the mess hall,\nand reflect in the water that is slowly filling the room. Once filled with perfectly formed lines of long-tables and benches,\nthe room is now a chaos of floating furniture and patches of fire.\nYou see doors to the west and east.");
   private Rooms room3 = new Rooms("Armory", " a medium sized room, with water reaching to your knees. The room is tightly packed with shelves that are now partly empty,\nas the crates that once occupied them are now all around you. Contrary to its name, you dont see any actual weapons,\nbut mostly tools used for excavation and research. The room is slightly dark, as your only light-source is a standing lamp,\nnow tipped over and lying submerged in water, scattering the light.\nYou see doors to the west and south.");
@@ -16,6 +17,7 @@ public class Map {
   public Map() {
      }
 
+     //route all rooms together
     public void roomRoutes () {
       playerLocation = room1; //player starting position
       room1.setDiscovered(true); //As it is the room that you spawn in
@@ -37,42 +39,6 @@ public class Map {
       room8.setEast(room9);
       room9.setWest(room8);
       room9.setNorth(room6);
-  }
-
-  public Rooms getRoom1() {
-    return room1;
-  }
-
-  public Rooms getRoom2() {
-    return room2;
-  }
-
-  public Rooms getRoom3() {
-    return room3;
-  }
-
-  public Rooms getRoom4() {
-    return room4;
-  }
-
-  public Rooms getRoom5() {
-    return room5;
-  }
-
-  public Rooms getRoom6() {
-    return room6;
-  }
-
-  public Rooms getRoom7() {
-    return room7;
-  }
-
-  public Rooms getRoom8() {
-    return room8;
-  }
-
-  public Rooms getRoom9() {
-    return room9;
   }
 
   public Rooms getPlayerLocation() {

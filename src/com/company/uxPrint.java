@@ -57,6 +57,7 @@ public class uxPrint {
         """);
   }
 
+  //Clears console to avoid cluttering
   public static void newPage(){
     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
   }

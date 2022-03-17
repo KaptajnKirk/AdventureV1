@@ -3,6 +3,7 @@ package com.company;
 import java.util.Scanner;
 
 public class Adventure {
+  //call map and scanner
   Map map = new Map();
   Scanner scanner = new Scanner(System.in);
 
@@ -26,6 +27,7 @@ public class Adventure {
     map.getPlayerLocation().setDiscovered(true);
   }
 
+  //Go command which takes any of the 4 directions
   public void goDirection(Rooms direction){
     if (direction == null) {
       uxPrint.directionNull();
