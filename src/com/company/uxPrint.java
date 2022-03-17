@@ -2,10 +2,13 @@ package com.company;
 
 public class uxPrint {
 
+  public uxPrint(){
+  }
+
   //Displays the backstory during the intro
-  public static void introPrint () {
+  public static void introPrint ()throws InterruptedException {
     System.out.println("\u001B[32m***************************************[BACKSTORY]*****************************************************\u001B[0m");
-    System.out.println("You are an engine mechanic aboard the galactic excavation and discovery vehicle The Aurora." +
+    printer("You are an engine mechanic aboard the galactic excavation and discovery vehicle The Aurora." +
         "\nThe mission, codenamed 'Degassi' is funded by the trans-governmental corporation Alterra." +
         "\nAlterra owns 61% of all space travel assets in the milky way galaxy, and they also happen to be your employer." +
         "\nThe Degassi mission is slated to last approximately four years." +
@@ -21,34 +24,66 @@ public class uxPrint {
   }
 
   //Displays ASCII art Titlecard
-  public static void displayTitleCard() {
-    System.out.println("\n\n\u001B[34m███████╗███████╗ ██████╗ █████╗ ██████╗ ███████╗    ███████╗██████╗  ██████╗ ███╗   ███╗     █████╗ ██╗   ██╗██████╗  ██████╗ ██████╗  █████╗" +
-        "\n██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝    ██╔════╝██╔══██╗██╔═══██╗████╗ ████║    ██╔══██╗██║   ██║██╔══██╗██╔═══██╗██╔══██╗██╔══██╗" +
-        "\n█████╗  ███████╗██║     ███████║██████╔╝█████╗      █████╗  ██████╔╝██║   ██║██╔████╔██║    ███████║██║   ██║██████╔╝██║   ██║██████╔╝███████║" +
-        "\n██╔══╝  ╚════██║██║     ██╔══██║██╔═══╝ ██╔══╝      ██╔══╝  ██╔══██╗██║   ██║██║╚██╔╝██║    ██╔══██║██║   ██║██╔══██╗██║   ██║██╔══██╗██╔══██║" +
-        "\n███████╗███████║╚██████╗██║  ██║██║     ███████╗    ██║     ██║  ██║╚██████╔╝██║ ╚═╝ ██║    ██║  ██║╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║" +
-        "\n╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚══════╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝\u001B[0m");
+  public static void displayTitleCard() throws InterruptedException {
+    newPage();
+    System.out.println("\u001B[34m███████╗███████╗ ██████╗ █████╗ ██████╗ ███████╗    ███████╗██████╗  ██████╗ ███╗   ███╗     █████╗ ██╗   ██╗██████╗  ██████╗ ██████╗  █████╗");
+    Thread.sleep(500);
+    System.out.println("██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝    ██╔════╝██╔══██╗██╔═══██╗████╗ ████║    ██╔══██╗██║   ██║██╔══██╗██╔═══██╗██╔══██╗██╔══██╗");
+    Thread.sleep(500);
+    System.out.println("█████╗  ███████╗██║     ███████║██████╔╝█████╗      █████╗  ██████╔╝██║   ██║██╔████╔██║    ███████║██║   ██║██████╔╝██║   ██║██████╔╝███████║");
+    Thread.sleep(500);
+    System.out.println("██╔══╝  ╚════██║██║     ██╔══██║██╔═══╝ ██╔══╝      ██╔══╝  ██╔══██╗██║   ██║██║╚██╔╝██║    ██╔══██║██║   ██║██╔══██╗██║   ██║██╔══██╗██╔══██║");
+    Thread.sleep(500);
+    System.out.println("███████╗███████║╚██████╗██║  ██║██║     ███████╗    ██║     ██║  ██║╚██████╔╝██║ ╚═╝ ██║    ██║  ██║╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║");
+    Thread.sleep(500);
+    System.out.println("╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚══════╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝\u001B[0m");
+    Thread.sleep(500);
+    System.out.println();
+    Thread.sleep(500);
+    System.out.println();
+    Thread.sleep(500);
+    System.out.println();
+    Thread.sleep(500);
+    System.out.println();
+    Thread.sleep(500);
   }
 
   //Displays ASCII art endcard
-  public static void displayEndCard() {
-    System.out.println("\u001B[32m████████╗██╗  ██╗ █████╗ ███╗   ██╗██╗  ██╗    ██╗   ██╗ ██████╗ ██╗   ██╗\n" +
-        "╚══██╔══╝██║  ██║██╔══██╗████╗  ██║██║ ██╔╝    ╚██╗ ██╔╝██╔═══██╗██║   ██║\n" +
-        "   ██║   ███████║███████║██╔██╗ ██║█████╔╝      ╚████╔╝ ██║   ██║██║   ██║\n" +
-        "   ██║   ██╔══██║██╔══██║██║╚██╗██║██╔═██╗       ╚██╔╝  ██║   ██║██║   ██║\n" +
-        "   ██║   ██║  ██║██║  ██║██║ ╚████║██║  ██╗       ██║   ╚██████╔╝╚██████╔╝\n" +
-        "   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝       ╚═╝    ╚═════╝  ╚═════╝\n" +
-        "███████╗ ██████╗ ██████╗     ██████╗ ██╗      █████╗ ██╗   ██╗██╗███╗   ██╗ ██████╗\n" +
-        "██╔════╝██╔═══██╗██╔══██╗    ██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝██║████╗  ██║██╔════╝\n" +
-        "█████╗  ██║   ██║██████╔╝    ██████╔╝██║     ███████║ ╚████╔╝ ██║██╔██╗ ██║██║  ███╗\n" +
-        "██╔══╝  ██║   ██║██╔══██╗    ██╔═══╝ ██║     ██╔══██║  ╚██╔╝  ██║██║╚██╗██║██║   ██║\n" +
-        "██║     ╚██████╔╝██║  ██║    ██║     ███████╗██║  ██║   ██║   ██║██║ ╚████║╚██████╔╝\n" +
-        "╚═╝      ╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝ \u001B[0m");
+  public static void displayEndCard() throws InterruptedException {
+    newPage();
+    System.out.println("\u001B[32m████████╗██╗  ██╗ █████╗ ███╗   ██╗██╗  ██╗    ██╗   ██╗ ██████╗ ██╗   ██╗");
+    Thread.sleep(500);
+    System.out.println("╚══██╔══╝██║  ██║██╔══██╗████╗  ██║██║ ██╔╝    ╚██╗ ██╔╝██╔═══██╗██║   ██║");
+    Thread.sleep(500);
+    System.out.println("   ██║   ███████║███████║██╔██╗ ██║█████╔╝      ╚████╔╝ ██║   ██║██║   ██║");
+    Thread.sleep(500);
+    System.out.println("   ██║   ██╔══██║██╔══██║██║╚██╗██║██╔═██╗       ╚██╔╝  ██║   ██║██║   ██║");
+    Thread.sleep(500);
+    System.out.println("   ██║   ██║  ██║██║  ██║██║ ╚████║██║  ██╗       ██║   ╚██████╔╝╚██████╔╝");
+    Thread.sleep(500);
+    System.out.println("   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝       ╚═╝    ╚═════╝  ╚═════╝");
+    Thread.sleep(500);
+    System.out.println("███████╗ ██████╗ ██████╗     ██████╗ ██╗      █████╗ ██╗   ██╗██╗███╗   ██╗ ██████╗");
+    Thread.sleep(500);
+    System.out.println("██╔════╝██╔═══██╗██╔══██╗    ██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝██║████╗  ██║██╔════╝");
+    Thread.sleep(500);
+    System.out.println("█████╗  ██║   ██║██████╔╝    ██████╔╝██║     ███████║ ╚████╔╝ ██║██╔██╗ ██║██║  ███╗");
+    Thread.sleep(500);
+    System.out.println("██╔══╝  ██║   ██║██╔══██╗    ██╔═══╝ ██║     ██╔══██║  ╚██╔╝  ██║██║╚██╗██║██║   ██║");
+    Thread.sleep(500);
+    System.out.println("██║     ╚██████╔╝██║  ██║    ██║     ███████╗██║  ██║   ██║   ██║██║ ╚████║╚██████╔╝");
+    Thread.sleep(500);
+    System.out.println("╚═╝      ╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝ \u001B[0m");
+    Thread.sleep(500);
+    System.out.println();
+    Thread.sleep(500);
+    System.out.println();
+    Thread.sleep(500);
   }
 
   //Intro to the game, basically room 1 description but with a wakeup start sentence
-  public static void displayWakeUp() {
-    System.out.println("""
+  public static void displayWakeUp()throws InterruptedException{
+    printer("""
         You awake in a room partly on fire. Small pieces of debris is falling from holes in the ceiling.
         Around you are scattered furniture, displaced in the crash. A work table, some vials on the floor,
         and a Alterra poster on the wall with a picture of the newest model of Alterra excavation machine.
@@ -75,40 +110,40 @@ public class uxPrint {
   }
 
   //Press Enter prompt for start
-  public static void enterPromt (){
+  public static void enterPromt()throws InterruptedException{
     System.out.println("\nPress 'ENTER' to continue");
   }
 
   //Prompt to tell the command for help, in the start
-  public static void helpPrompt(){
-    System.out.println("Type 'help' at any stage during the adventure to get a list of commands.");
+  public static void helpPrompt()throws InterruptedException{
+    printer("Type 'help' at any stage during the adventure to get a list of commands.");
   }
 
   //Final enter prompt, starts the game
-  public static void enterWakeUpPromt(){
+  public static void enterWakeUpPromt()throws InterruptedException{
     System.out.println("\nPress 'ENTER' to wake up and start the adventure");
   }
 
   //Next move prompt
-  public static void nextMovePrompt(){
-    System.out.println("\n\nWhat is your next move?");
+  public static void nextMovePrompt()throws InterruptedException{
+    printer("\n\nWhat is your next move?");
   }
 
 
   //Exit prompt
-  public static void exitPrompt(){
-    System.out.println("You are now exiting the game!");
+  public static void exitPrompt()throws InterruptedException{
+    printer("You are now exiting the game!");
   }
 
   //Outprint when player only types "go"
-  public static void incompleteDirection(){
-    System.out.println("Where do you want to go?");
-    System.out.println("Please type something like 'go east' or 'go north'");
+  public static void incompleteDirection()throws InterruptedException{
+    printer("Where do you want to go?");
+    printer("Please type something like 'go east' or 'go north'");
   }
 
   //outprint for invalid input command
-  public static void invalidInput(){
-    System.out.println("Invalid input");
+  public static void invalidInput() {
+    System.out.println("Invalid input!");
   }
 
   //For when direction is null
@@ -116,6 +151,26 @@ public class uxPrint {
     System.out.println("You cannot go this way");
   }
 
+  public static void displayRoomName(String name)throws InterruptedException{
+    printer("You are in the " + name);
+  }
+
+  //display the room description when the user enters a specif room for the first time
+  public static void displayRoomDescription(String description) throws InterruptedException {
+    printer("You walk into" + description);
+  }
+  //look command to display the room description to the user
+  public static void displayLookDescription(String description) {
+    System.out.println("You are in" + description);
+  }
+
+  public static void printer(String text) throws InterruptedException {
+    for (int i = 0; i <= text.length()-1; i++){
+      System.out.print(text.charAt(i));
+      Thread.sleep(20);
+    }
+    System.out.println();
+  }
 
 }
 

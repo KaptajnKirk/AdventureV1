@@ -7,44 +7,30 @@ public class Adventure {
   Map map = new Map();
   Scanner scanner = new Scanner(System.in);
 
-  //Display room name whenever user enters a room
-  public void displayRoomName() {
-    System.out.println("You are in the " + map.getPlayerLocation().getName());
-  }
-
-  //display the room description when the user enters a specif room for the first time
-  public void displayRoomDescription() {
-    System.out.println("You walk into" + map.getPlayerLocation().getDescription());
-  }
-
-  //look command to display the room description to the user
-  public void displayLookDescription() {
-    System.out.println("You are in" + map.getPlayerLocation().getDescription());
-  }
-
   //Change rooms discover boolean to true after the user has entered a room
   public void markAreaDiscovered() {
     map.getPlayerLocation().setDiscovered(true);
   }
 
   //Go command which takes any of the 4 directions
-  public void goDirection(Rooms direction){
+  public void goDirection(Rooms direction) throws InterruptedException {
     if (direction == null) {
       uxPrint.directionNull();
     } else {
       map.setPlayerLocation(direction);
     }
     if (map.getPlayerLocation().getDiscovered()) { //Do not display room name when direction is null
-      displayRoomName();
-    }else {
+      uxPrint.displayRoomName(map.getPlayerLocation().getName());
+    } else {
       markAreaDiscovered();
-      displayRoomDescription();
-      displayRoomName();
+      uxPrint.displayRoomDescription(map.getPlayerLocation().getDescription());
+      uxPrint.displayRoomName(map.getPlayerLocation().getName());
     }
   }
 
   //The main game method with while loop that runs until user types exit
-  public void game() {
+  public void game() throws InterruptedException {
+    uxPrint ux = new uxPrint();
     map.roomRoutes();
     uxPrint.displayTitleCard();
     uxPrint.enterPromt();
@@ -59,7 +45,7 @@ public class Adventure {
     next = scanner.nextLine();
     uxPrint.newPage();
     uxPrint.displayWakeUp();
-    displayRoomName();
+    uxPrint.displayRoomName(map.getPlayerLocation().getName());
     boolean run = true;
     while (run) {
       uxPrint.nextMovePrompt();
@@ -70,7 +56,7 @@ public class Adventure {
           uxPrint.exitPrompt();
           run = false;
         }
-        case "look" -> displayLookDescription();
+        case "look" -> uxPrint.displayLookDescription(map.getPlayerLocation().getDescription());
         case "go north", "north", "n" -> goDirection(map.getPlayerLocation().getNorth());
         case "go south", "south", "s" -> goDirection(map.getPlayerLocation().getSouth());
         case "go east", "east", "e" -> goDirection(map.getPlayerLocation().getEast());
@@ -80,12 +66,6 @@ public class Adventure {
         default -> uxPrint.invalidInput();
       }
     }
-      uxPrint.displayEndCard();
-    }
-
-  public static void main(String[] args) {
-
-    Adventure prg = new Adventure();
-    prg.game();
+    uxPrint.displayEndCard();
   }
 }
