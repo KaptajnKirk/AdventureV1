@@ -66,7 +66,7 @@ public class Adventure {
 
   public void goDirection(Rooms direction){
     if (direction == null) {
-      System.out.println("You cannot go this way");
+      uxPrint.directionNull();
     } else {
       currentLocation = direction;
     }

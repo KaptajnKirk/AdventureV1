@@ -70,35 +70,46 @@ public class uxPrint {
     System.out.println("*******************************************************************************************************\u001B[0m");
   }
 
+  //Press Enter prompt for start
   public static void enterPromt (){
     System.out.println("\nPress 'ENTER' to continue");
   }
 
-
+  //Prompt to tell the command for help, in the start
   public static void helpPrompt(){
     System.out.println("Type 'help' at any stage during the adventure to get a list of commands.");
   }
 
+  //Final enter prompt, starts the game
   public static void enterWakeUpPromt(){
     System.out.println("\nPress 'ENTER' to wake up and start the adventure");
   }
 
+  //Next move prompt
   public static void nextMovePrompt(){
     System.out.println("\n\nWhat is your next move?");
   }
 
 
+  //Exit prompt
   public static void exitPrompt(){
     System.out.println("You are now exiting the game!");
   }
 
+  //Outprint when player only types "go"
   public static void incompleteDirection(){
     System.out.println("Where do you want to go?");
     System.out.println("Please type something like 'go east' or 'go north'");
   }
 
+  //outprint for invalid input command
   public static void invalidInput(){
     System.out.println("Invalid input");
+  }
+
+  //For when direction is null
+  public static void directionNull(){
+    System.out.println("You cannot go this way");
   }
 
 
