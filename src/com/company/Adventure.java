@@ -43,31 +43,6 @@ public class Adventure {
     room9.setNorth(room6);
   }
 
-  //Title Card text art
-  public void displayTitleCard() {
-    System.out.println("\n\n\u001B[34m███████╗███████╗ ██████╗ █████╗ ██████╗ ███████╗    ███████╗██████╗  ██████╗ ███╗   ███╗     █████╗ ██╗   ██╗██████╗  ██████╗ ██████╗  █████╗" +
-        "\n██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝    ██╔════╝██╔══██╗██╔═══██╗████╗ ████║    ██╔══██╗██║   ██║██╔══██╗██╔═══██╗██╔══██╗██╔══██╗" +
-        "\n█████╗  ███████╗██║     ███████║██████╔╝█████╗      █████╗  ██████╔╝██║   ██║██╔████╔██║    ███████║██║   ██║██████╔╝██║   ██║██████╔╝███████║" +
-        "\n██╔══╝  ╚════██║██║     ██╔══██║██╔═══╝ ██╔══╝      ██╔══╝  ██╔══██╗██║   ██║██║╚██╔╝██║    ██╔══██║██║   ██║██╔══██╗██║   ██║██╔══██╗██╔══██║" +
-        "\n███████╗███████║╚██████╗██║  ██║██║     ███████╗    ██║     ██║  ██║╚██████╔╝██║ ╚═╝ ██║    ██║  ██║╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║" +
-        "\n╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚══════╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝\u001B[0m");
-  }
-
-  //End Card text art
-  public void displayEndCard() {
-    System.out.println("\u001B[32m████████╗██╗  ██╗ █████╗ ███╗   ██╗██╗  ██╗    ██╗   ██╗ ██████╗ ██╗   ██╗\n" +
-        "╚══██╔══╝██║  ██║██╔══██╗████╗  ██║██║ ██╔╝    ╚██╗ ██╔╝██╔═══██╗██║   ██║\n" +
-        "   ██║   ███████║███████║██╔██╗ ██║█████╔╝      ╚████╔╝ ██║   ██║██║   ██║\n" +
-        "   ██║   ██╔══██║██╔══██║██║╚██╗██║██╔═██╗       ╚██╔╝  ██║   ██║██║   ██║\n" +
-        "   ██║   ██║  ██║██║  ██║██║ ╚████║██║  ██╗       ██║   ╚██████╔╝╚██████╔╝\n" +
-        "   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝       ╚═╝    ╚═════╝  ╚═════╝\n" +
-        "███████╗ ██████╗ ██████╗     ██████╗ ██╗      █████╗ ██╗   ██╗██╗███╗   ██╗ ██████╗\n" +
-        "██╔════╝██╔═══██╗██╔══██╗    ██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝██║████╗  ██║██╔════╝\n" +
-        "█████╗  ██║   ██║██████╔╝    ██████╔╝██║     ███████║ ╚████╔╝ ██║██╔██╗ ██║██║  ███╗\n" +
-        "██╔══╝  ██║   ██║██╔══██╗    ██╔═══╝ ██║     ██╔══██║  ╚██╔╝  ██║██║╚██╗██║██║   ██║\n" +
-        "██║     ╚██████╔╝██║  ██║    ██║     ███████╗██║  ██║   ██║   ██║██║ ╚████║╚██████╔╝\n" +
-        "╚═╝      ╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝ \u001B[0m");
-  }
 
   //Display room name whenever user enters a room
   public void displayRoomName() {
@@ -83,50 +58,6 @@ public class Adventure {
   public void displayLookDescription() {
     System.out.println("You are in" + currentLocation.getDescription());
   }
-
-  //Intro to the games backstory and setup
-  public void displayIntro() {
-    System.out.println("\u001B[32m***************************************[BACKSTORY]*****************************************************\u001B[0m");
-    System.out.println("""
-            You are an engine mechanic aboard the galactic excavation and discovery vehicle The Aurora.
-            The mission, codenamed 'Degassi' is funded by the trans-governmental corporation Alterra.
-            Alterra owns 61% of all space travel assets in the milky way galaxy, and they also happen to be your employer.
-            The Degassi mission is slated to last approximately four years.
-            its main objective is to research and excavate newly discovered planet 6784X, for future habitation.
-            With no real family or relationship back on earth, you signed on for the generous mission salary.
-            The Aurora is a massive ship equipped for both land and water-based missions, and houses 265 crew members in total.
-            The Degassi mission has recently passed its one year mark, and you are currently slingshotting around planet 4546B.
-            An ocean planet consisting of 91.1% water. One day you are called to the Captains Quarters, to report the weekly fuel consumption rate.
-            In the middle of your report, the ship suddenly starts to shake violently, and you lose your footing, stumbling to the ground.
-            Red lights starts blinking, as the intercom sounds 'ALERT: SHIP UNDER ATTACK. TWO MAIN ENGINES LOST. EVACUATE TO THE ESCAPE PODS'.
-            Suddenly a small explosion happens inside the room, and as you and the captain are storming towards the exit, a single wall panel rips lose.
-            it flies straight towards you. In an instant, everything turns dark...
-            """);
-  }
-
-  //Intro to the game, basically room 1 description but with a wakeup start sentence
-  public void displayWakeUp() {
-    System.out.println("""
-            You awake in a room partly on fire. Small pieces of debris is falling from holes in the ceiling.
-            Around you are scattered furniture, displaced in the crash. A work table, some vials on the floor,
-            and a Alterra poster on the wall with a picture of the newest model of Alterra excavation machine.
-            You are slightly confused, and the last thing you remember is dropping to the planet surface in the Alterra Space cruiser.
-            You see doors to the south and east.
-            """);
-  }
-
-  //display of the HELP menu
-  public void displayHelpMenu() {
-    System.out.println("\u001B[34m*******************************************************************************************************");
-    System.out.println("*****************************************[HELP]********************************************************\u001B[0m");
-    System.out.println("\n\texit\t- Exit the game");
-    System.out.println("\tlook\t- Get the description of current room");
-    System.out.println("\tgo\t\t- Go in the direction you wish by typing 'go' followed by the direction. (ex. go north)");
-    System.out.println("\thelp\t- Get this help menu");
-    System.out.println("\n\u001B[34m*****************************************[Menu]********************************************************");
-    System.out.println("*******************************************************************************************************\u001B[0m");
-  }
-
 
   //Change rooms discover boolean to true after the user has entered a room
   public void markAreaDiscovered() {
@@ -151,25 +82,25 @@ public class Adventure {
   //The main game method with while loop that runs until user types exit
   public void game() {
     roomRoutes();
-    displayTitleCard();
-    System.out.println("\nPress 'ENTER' to continue");
+    uxPrint.displayTitleCard();
+    uxPrint.enterPromt();
     String next = scanner.nextLine();
-    System.out.println("Type 'help' at any stage during the adventure to get a list of commands.");
-    System.out.println("\nPress 'ENTER' to continue");
+    uxPrint.helpPrompt();
+    uxPrint.enterPromt();
     next = scanner.nextLine();
-    displayIntro();
-    System.out.println("\nPress 'ENTER' to wake up and start the adventure");
+    uxPrint.introPrint();
+    uxPrint.enterWakeUpPromt();
     next = scanner.nextLine();
-    displayWakeUp();
+    uxPrint.displayWakeUp();
     displayRoomName();
     boolean run = true;
     while (run) {
-      System.out.println("\n\nWhat is your next move?");
+      uxPrint.nextMovePrompt();
       String choice = scanner.nextLine();
 
       switch (choice) {
         case "exit":
-          System.out.println("You are now exiting the game!");
+          uxPrint.exitPrompt();
           run = false;
           break;
         case "look":
@@ -192,17 +123,16 @@ public class Adventure {
           goDirection(currentLocation.getWest());
           break;
         case "go":
-          System.out.println("Where do you want to go?");
-          System.out.println("Please type something like 'go east' or 'go north'");
+          uxPrint.incompleteDirection();
           break;
         case "help":
-          displayHelpMenu();
+          uxPrint.displayHelpMenu();
           break;
         default:
-          System.out.println("Invalid input");
+          uxPrint.invalidInput();
       }
     }
-    displayEndCard();
+    uxPrint.displayEndCard();
   }
 
   public static void main(String[] args) {
