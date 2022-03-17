@@ -55,7 +55,10 @@ public class uxPrint {
         You are slightly confused, and the last thing you remember is dropping to the planet surface in the Alterra Space cruiser.
         You see doors to the south and east.
         """);
+  }
 
+  public static void newPage(){
+    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
   }
 
   //display of the HELP menu
