@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Adventure {
   //call map and scanner
+
+  private Music music;
   Map map = new Map();
   Scanner scanner = new Scanner(System.in);
 
@@ -30,7 +32,9 @@ public class Adventure {
 
   //The main game method with while loop that runs until user types exit
   public void game() throws InterruptedException {
+    music = new Music();
     uxPrint ux = new uxPrint();
+    music.playMusic();
     map.roomRoutes();
     uxPrint.displayTitleCard();
     uxPrint.enterPromt();
