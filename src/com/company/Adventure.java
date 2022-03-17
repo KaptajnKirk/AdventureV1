@@ -98,38 +98,20 @@ public class Adventure {
       uxPrint.nextMovePrompt();
       String choice = scanner.nextLine();
 
+
       switch (choice) {
-        case "exit":
+        case "exit" -> {
           uxPrint.exitPrompt();
           run = false;
-          break;
-        case "look":
-          displayLookDescription();
-          break;
-        case "go north", "north", "n":
-          //goNorth();
-          goDirection(currentLocation.getNorth());
-          break;
-        case "go south", "south", "s":
-          //goSouth();
-          goDirection(currentLocation.getSouth());
-          break;
-        case "go east", "east", "e":
-          //goEast();
-          goDirection(currentLocation.getEast());
-          break;
-        case "go west", "west", "w":
-          //goWest();
-          goDirection(currentLocation.getWest());
-          break;
-        case "go":
-          uxPrint.incompleteDirection();
-          break;
-        case "help":
-          uxPrint.displayHelpMenu();
-          break;
-        default:
-          uxPrint.invalidInput();
+        }
+        case "look" -> displayLookDescription();
+        case "go north", "north", "n" -> goDirection(currentLocation.getNorth());
+        case "go south", "south", "s" -> goDirection(currentLocation.getSouth());
+        case "go east", "east", "e" -> goDirection(currentLocation.getEast());
+        case "go west", "west", "w" -> goDirection(currentLocation.getWest());
+        case "go" -> uxPrint.incompleteDirection();
+        case "help" -> uxPrint.displayHelpMenu();
+        default -> uxPrint.invalidInput();
       }
     }
     uxPrint.displayEndCard();
