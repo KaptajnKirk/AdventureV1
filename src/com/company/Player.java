@@ -20,17 +20,23 @@ public class Player {
     return currentPosition;
   }
 
-  public ArrayList<String> getInventory() {
-    return inventory;
+  public void addToInventory(String item) {
+    for (int x = 0; x < currentPosition.getItems().size(); x++) {
+      if (item.equals(currentPosition.getItems().get(x))) {
+        this.inventory.add(item);
+        currentPosition.getItems().remove(x);
+        System.out.println("You have added " + item + " to your inventory");
+      }System.out.println("You have added " + item + " to your inventory");
+    }
   }
-  public void addToInventory(String item){
-    this.inventory.add(item);
-  }
+
+
   public void goDirection(Rooms direction) throws InterruptedException {
     if (direction == null) {
       uxPrint.directionNull();
     } else {
       setCurrentPosition(direction);
+      map.setCurrentRoom(direction);
     }
     if (currentPosition.getDiscovered()) { //Do not display room name when direction is null
       uxPrint.displayRoomName(getCurrentPosition().getName());
@@ -42,6 +48,12 @@ public class Player {
   }
     public void markAreaDiscovered() {
       getCurrentPosition().setDiscovered(true);
+    }
+
+    public void displayInventory(){
+    if (inventory.size() == 0) {
+      System.out.println("Your inventory is empty!");
+    }else System.out.println("Inventory: " + inventory);
     }
   }
 

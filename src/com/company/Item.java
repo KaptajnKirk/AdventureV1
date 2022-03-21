@@ -2,19 +2,21 @@ package com.company;
 
 public class Item {
 
-  private String laserCutter;
-  private String fireExtinguisher;
-  private String repairTool;
-  private String survivalKnife;
-  private String flashLight;
-  private String powercell;
+  private String name;
 
-  public Item() {
-    this.laserCutter = "lasercutter";
-    this.fireExtinguisher = "fire extinguisher";
-    this.repairTool = "repair tool";
-    this.survivalKnife = "survival knife";
-    this.flashLight = "flashlight";
-    this.powercell = "power cell";
+  public Item(String name) {
+    this.name = name;
+  }
+
+  public String getName(){
+    return name;
+  }
+
+  public void setName(String name){
+    this.name = name;
+  }
+
+  public String toString(){
+    return name;
   }
 }
