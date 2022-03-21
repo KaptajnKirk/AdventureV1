@@ -42,7 +42,6 @@ public class Adventure {
       } else { choice1 = choice;
         choice2 = " ";
       }
-
       uxPrint.newPage();
       switch (choice1) {
         case "exit" -> {
@@ -59,14 +58,9 @@ public class Adventure {
             default -> uxPrint.incompleteDirection();
           }
         }
-        case "take" -> {
-          System.out.println("Please specify what you wish to take!");
-          String item = scanner.nextLine();
-          player1.addToInventory(item);
-        }
-/*        case "take " -> player1.addToInventory(choice.substring(choice.indexOf(" ")+1));*/
+        case "take" -> player1.addToInventory(choice2);
         case "inventory", "inv" -> player1.displayInventory();
-        case "drop" -> System.out.println("Hey!!!!! Don't litter you shit");
+        case "drop" -> player1.dropItem(choice2);
         case "help" -> uxPrint.displayHelpMenu();
         default -> uxPrint.invalidInput();
       }

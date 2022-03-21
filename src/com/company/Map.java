@@ -53,10 +53,6 @@ public class Map {
     return room1;
   }
 
-  public Rooms getCurrentRoom(){
-    return currentRoom;
-  }
-
   public void setCurrentRoom(Rooms currentRoom){
     this.currentRoom = currentRoom;
   }
