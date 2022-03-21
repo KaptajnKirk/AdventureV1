@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Adventure {
@@ -28,22 +30,38 @@ public class Adventure {
     uxPrint.newPage();
     uxPrint.displayWakeUp();
     uxPrint.displayRoomName(player1.getCurrentPosition().getName());
+    uxPrint.displayRoomItems(player1.getCurrentPosition().getItems());
     boolean run = true;
     while (run) {
       uxPrint.nextMovePrompt();
       String choice = scanner.nextLine();
+      String choice2;
+      String choice1;
+      if(choice.contains(" ")){
+        choice1 = choice.substring(0, choice.indexOf(" "));
+        choice2 = choice.substring((choice.indexOf(" ")+1));
+      } else { choice1 = choice;
+        choice2 = " ";
+      }
       uxPrint.newPage();
-      switch (choice) {
+      switch (choice1.toLowerCase(Locale.ROOT)) {
         case "exit" -> {
           uxPrint.exitPrompt();
           run = false;
         }
         case "look" -> uxPrint.displayLookDescription(player1.getCurrentPosition().getDescription());
-        case "go north", "north", "n" -> player1.goDirection(player1.getCurrentPosition().getNorth());
-        case "go south", "south", "s" -> player1.goDirection(player1.getCurrentPosition().getSouth());
-        case "go east", "east", "e" -> player1.goDirection(player1.getCurrentPosition().getEast());
-        case "go west", "west", "w" -> player1.goDirection(player1.getCurrentPosition().getWest());
-        case "go" -> uxPrint.incompleteDirection();
+        case "go" -> {
+          switch (choice2.toLowerCase(Locale.ROOT)){
+            case "north", "n" -> player1.goDirection(player1.getCurrentPosition().getNorth());
+            case "south", "s" -> player1.goDirection(player1.getCurrentPosition().getSouth());
+            case "east", "e" -> player1.goDirection(player1.getCurrentPosition().getEast());
+            case "west", "w" -> player1.goDirection(player1.getCurrentPosition().getWest());
+            default -> uxPrint.incompleteDirection();
+          }
+        }
+        case "take" -> player1.addToInventory(choice2.toLowerCase(Locale.ROOT));
+        case "inventory", "inv" -> player1.displayInventory();
+        case "drop" -> player1.dropItem(choice2);
         case "help" -> uxPrint.displayHelpMenu();
         default -> uxPrint.invalidInput();
       }

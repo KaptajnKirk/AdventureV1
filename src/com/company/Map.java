@@ -2,6 +2,8 @@ package com.company;
 
 public class Map {
 
+
+
   //Create all rooms needed
   private Rooms room1 = new Rooms("Captains quarters", " a room partly on fire. Small pieces of debris is falling from holes in the ceiling.\nAround you are scattered furniture, displaced in the crash. A work table, some vials on the floor,\nand a Alterra poster on the wall with a picture of the newest model of Alterra excavation machine.\nYou are slightly confused, and the last thing you remember is dropping to the planet surface in the Alterra Space cruiser.\nYou see doors to the south and east.");
   private Rooms room2 = new Rooms("Mess Hall", " the massive mess hall, made to feed the 240 workers aboard the Alterra Starliner Aurora.\nOnly a few of the bright fluorecent lights, light up the grey and white walls of the mess hall,\nand reflect in the water that is slowly filling the room. Once filled with perfectly formed lines of long-tables and benches,\nthe room is now a chaos of floating furniture and patches of fire.\nYou see doors to the west and east.");
@@ -12,7 +14,12 @@ public class Map {
   private Rooms room7 = new Rooms("Sleeping Quarters", " the sleeping quarters. This is just one room of the many that makes up the crew quarters.\nSmall fires are scattered across the room, and a medium sizes hole has been made in the southern wall,\nmaking the neighbour room visible. As Alterra doesnt allow many personal items to bring along on excavation voyages,\nthe only things floating around in the ankle high water are small tools, hygiene items, papers, etc.\nYou see doors to the north and east.");
   private Rooms room8 = new Rooms("Science Lab", " a small room, with a single, one-person submarine suspended from the ceiling in the middle of the room.\nYou have never visited the lab prior, since it has always been off limits. Glass shards from vials fills the floor,\nand microscopes and other research tools, are scattered amongst the flipped worktables and whiteboards.\nYou can see equations etched onto the wall-embedded worktables.\nThe ceiling lights are weirdly still fully functioning, covering the lab in a bright defused, white light.\nYou see doors to the west, north and east.");
   private Rooms room9 = new Rooms("Submarine Bay", " a massive hall, with Alterra's signature expedition submarine, 'The Cyclops' taking up most of the hall.\nThe submarine has fallen out of its ceiling mount, and now partly blocks the entrance pool below it.\nOn the bottom of the entrance pool, there is a gate that opens up, as an exit for submarines.\nAround the room, there are one-man submarines socketed into the walls, where they used to charge.\nSome of them fell out during the crash, and now partly occupy the bay floor.\nYou should be able to take a one-man submarine through the gate, provided you can get it open.\nYou see doors to the north and west.");
+  private Item lasercutter = new Item("lasercutter");
+  private Item flashlight = new Item("flashlight");
+  private Item survivalKnife = new Item("survival knife");
+  private Item fireExtinguisher = new Item("fire extinguisher");
 
+  private Rooms currentRoom;
 
 
   public Map() {
@@ -35,9 +42,19 @@ public class Map {
     room8.setEast(room9);
     room9.setWest(room8);
     room9.setNorth(room6);
+
+    room1.addItems(lasercutter.getName());
+    room2.addItems(flashlight.getName());
+    room3.addItems(survivalKnife.getName());
+    room6.addItems(fireExtinguisher.getName());
      }
 
   public Rooms getRoom1() {
     return room1;
   }
+
+  public void setCurrentRoom(Rooms currentRoom){
+    this.currentRoom = currentRoom;
+  }
+
 }

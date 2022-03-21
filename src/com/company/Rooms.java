@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Rooms {
 
@@ -12,7 +11,7 @@ public class Rooms {
   private Rooms west;
   private String description;
   private String name;
-  private String item;
+  private ArrayList<String> items = new ArrayList<>();
 
 
 
@@ -24,7 +23,6 @@ public class Rooms {
     this.east = null;
     this.west = null;
     this.discovered = false;
-    this.item = item;
   }
 
 
@@ -75,4 +73,13 @@ public class Rooms {
   public void setDiscovered(boolean discovered){
     this.discovered = discovered;
   }
+
+  public void addItems(String item) {
+    this.items.add(item);
+  }
+
+  public ArrayList<String> getItems(){
+    return items;
+  }
+
 }

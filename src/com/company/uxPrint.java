@@ -1,8 +1,13 @@
 package com.company;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class uxPrint {
 
+
   public uxPrint(){
+
   }
 
   //Displays the backstory during the intro
@@ -27,25 +32,25 @@ public class uxPrint {
   public static void displayTitleCard() throws InterruptedException {
     newPage();
     System.out.println("\u001B[34m███████╗███████╗ ██████╗ █████╗ ██████╗ ███████╗    ███████╗██████╗  ██████╗ ███╗   ███╗     █████╗ ██╗   ██╗██████╗  ██████╗ ██████╗  █████╗");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝    ██╔════╝██╔══██╗██╔═══██╗████╗ ████║    ██╔══██╗██║   ██║██╔══██╗██╔═══██╗██╔══██╗██╔══██╗");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("█████╗  ███████╗██║     ███████║██████╔╝█████╗      █████╗  ██████╔╝██║   ██║██╔████╔██║    ███████║██║   ██║██████╔╝██║   ██║██████╔╝███████║");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("██╔══╝  ╚════██║██║     ██╔══██║██╔═══╝ ██╔══╝      ██╔══╝  ██╔══██╗██║   ██║██║╚██╔╝██║    ██╔══██║██║   ██║██╔══██╗██║   ██║██╔══██╗██╔══██║");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("███████╗███████║╚██████╗██║  ██║██║     ███████╗    ██║     ██║  ██║╚██████╔╝██║ ╚═╝ ██║    ██║  ██║╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println("╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚══════╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝\u001B[0m");
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println();
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println();
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println();
-    Thread.sleep(500);
+    Thread.sleep(100);
     System.out.println();
-    Thread.sleep(500);
+    Thread.sleep(100);
   }
 
   //Displays ASCII art endcard
@@ -101,10 +106,13 @@ public class uxPrint {
   public static void displayHelpMenu() {
     System.out.println("\u001B[34m*******************************************************************************************************");
     System.out.println("*****************************************[HELP]********************************************************\u001B[0m");
-    System.out.println("\n\texit\t- Exit the game");
-    System.out.println("\tlook\t- Get the description of current room");
-    System.out.println("\tgo\t\t- Go in the direction you wish by typing 'go' followed by the direction. (ex. go north)");
-    System.out.println("\thelp\t- Get this help menu");
+    System.out.println("\n\texit\t\t\t- Exit the game");
+    System.out.println("\tlook\t\t\t- Get the description of current room");
+    System.out.println("\tgo 'direction'\t- Go in the given direction(ex. go north)");
+    System.out.println("\thelp\t\t\t- Get this help menu");
+    System.out.println("\ttake 'item'\t\t- Place a given item in your inventory ");
+    System.out.println("\tdrop 'item'\t\t- Drop the given item on the floor in current room");
+    System.out.println("\tinventory\t\t- Open your inventory");
     System.out.println("\n\u001B[34m*****************************************[Menu]********************************************************");
     System.out.println("*******************************************************************************************************\u001B[0m");
   }
@@ -164,10 +172,9 @@ public class uxPrint {
     System.out.println("You are in" + description);
   }
 
-  public static void check(String room){
-    System.out.println("Player is in: " + room);
+  public static void displayRoomItems(ArrayList<String> item){
+    System.out.println("You see the following items in the room: " + item);
   }
-
   public static void printer(String text) throws InterruptedException {
     for (int i = 0; i <= text.length()-1; i++){
       System.out.print(text.charAt(i));

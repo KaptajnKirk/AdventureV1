@@ -20,28 +20,67 @@ public class Player {
     return currentPosition;
   }
 
-  public ArrayList<String> getInventory() {
-    return inventory;
+  public void addToInventory(String item) {
+    boolean isItemInInv = false;
+    for (int x = 0; x < currentPosition.getItems().size(); x++) {
+      if (item.equals(currentPosition.getItems().get(x))) {
+        isItemInInv = true;
+        inventory.add(item);
+        currentPosition.getItems().remove(x);
+        System.out.println("You have added " + item + " to your inventory!");
+      } if (item == " ") {
+        System.out.println("Are you trying to pickup nothing?\nTry again!");
+      }
+      } if (isItemInInv == false) {
+        System.out.println("There is no " + item + " nearby!");
+    }
   }
-  public void addToInventory(String item){
-    this.inventory.add(item);
+
+  public void dropItem(String item) {
+    if (item.equals(" ")) {
+      System.out.println("Are you trying to drop nothing?\nTry again!");
+    }
+    boolean isItemInInv = false;
+    int i = 0;
+    for (int x = 0; x < inventory.size(); x++) {
+      i++;
+      if (item.equals(inventory.get(x))) {
+        isItemInInv = true;
+        inventory.remove(item);
+        currentPosition.addItems(item);
+        System.out.println("You have dropped " + item + " on the floor!");
+      }
+      }if (i == inventory.size() && isItemInInv== false) {
+        System.out.println("You don't have " + item + " in your inventory!");
+    }
   }
+
+
   public void goDirection(Rooms direction) throws InterruptedException {
     if (direction == null) {
       uxPrint.directionNull();
     } else {
       setCurrentPosition(direction);
+      map.setCurrentRoom(direction);
     }
     if (currentPosition.getDiscovered()) { //Do not display room name when direction is null
       uxPrint.displayRoomName(getCurrentPosition().getName());
+      uxPrint.displayRoomItems(getCurrentPosition().getItems());
     } else {
       markAreaDiscovered();
       uxPrint.displayRoomDescription(getCurrentPosition().getDescription());
       uxPrint.displayRoomName(getCurrentPosition().getName());
+      uxPrint.displayRoomItems(getCurrentPosition().getItems());
     }
   }
     public void markAreaDiscovered() {
       getCurrentPosition().setDiscovered(true);
+    }
+
+    public void displayInventory(){
+    if (inventory.size() == 0) {
+      System.out.println("Your inventory is empty!");
+    }else System.out.println("Inventory: " + inventory);
     }
   }
 
