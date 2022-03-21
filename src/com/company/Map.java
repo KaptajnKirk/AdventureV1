@@ -20,6 +20,7 @@ public class Map {
   private Item fireExtinguisher = new Item("fire extinguisher");
   private Item repairTool = new Item("repair tool");
   private Item powercell = new Item("powercell");
+  private LootBox toolbox = new LootBox("toolbox");
 
   private Rooms currentRoom;
 
@@ -54,12 +55,16 @@ public class Map {
     room9.setWest(room8);
     room9.setNorth(room6);
 
+    toolbox.addItems(lasercutter.getName());
+    room1.addChest(toolbox);
+
     //adding items to rooms
     room3.addItems(lasercutter.getName());
     room6.addItems(flashlight.getName());
     room3.addItems(survivalKnife.getName());
     room8.addItems(fireExtinguisher.getName());
     room4.addItems(repairTool.getName());
+
      }
 
   public Rooms getRoom1() {

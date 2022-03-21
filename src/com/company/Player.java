@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Player {
   Map map = new Map();
   private Rooms currentPosition;
-  private ArrayList<String> inventory;
+  private final ArrayList<String> inventory;
 
   public Player(Rooms room) {
     this.currentPosition = room;
@@ -29,11 +29,11 @@ public class Player {
         currentPosition.getItems().remove(x);
         System.out.println("You have added " + item + " to your inventory!");
       }
-      if (item == " ") {
+      if (item.equals(" ")) {
         System.out.println("Are you trying to pickup nothing?\nTry again!");
       }
     }
-    if (isItemInInv == false) {
+    if (!isItemInInv) {
       System.out.println("There is no " + item + " nearby!");
     }
   }
@@ -53,7 +53,7 @@ public class Player {
         System.out.println("You have dropped " + item + " on the floor!");
       }
     }
-    if (i == inventory.size() && isItemInInv == false) {
+    if (i == inventory.size() && !isItemInInv) {
       System.out.println("You don't have " + item + " in your inventory!");
     }
   }

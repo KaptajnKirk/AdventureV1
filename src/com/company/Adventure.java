@@ -19,7 +19,7 @@ public class Adventure {
     uiPrint.enterPromt();
     String next = scanner.nextLine();
     uiPrint.newPage();
-    uiPrint.helpPrompt();
+    uiPrint.displayHelpMenu();
     uiPrint.enterPromt();
     next = scanner.nextLine();
     uiPrint.newPage();
@@ -51,6 +51,10 @@ public class Adventure {
         case "look" -> {
           uiPrint.displayLookDescription(player1.getCurrentPosition().getDescription());
           uiPrint.displayRoomItems(player1.getCurrentPosition().getItems());
+        }
+        case "search" ->{
+          System.out.println(player1.getCurrentPosition().getChest().getName());
+          System.out.println(player1.getCurrentPosition().getChest().getItems());
         }
         case "go" -> {
           switch (choice2.toLowerCase(Locale.ROOT)) {

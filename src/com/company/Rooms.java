@@ -12,6 +12,7 @@ public class Rooms {
   private String description;
   private String name;
   private ArrayList<String> items = new ArrayList<>();
+  private LootBox chest;
 
 
 
@@ -79,6 +80,14 @@ public class Rooms {
   }
   public ArrayList<String> getItems(){
     return items;
+  }
+
+  public void addChest(LootBox chest){
+    this.chest = chest;
+  }
+
+  public LootBox getChest(){
+    return chest;
   }
 
 }
