@@ -65,10 +65,12 @@ public class Player {
     }
     if (currentPosition.getDiscovered()) { //Do not display room name when direction is null
       uxPrint.displayRoomName(getCurrentPosition().getName());
+      uxPrint.displayRoomItems(getCurrentPosition().getItems());
     } else {
       markAreaDiscovered();
       uxPrint.displayRoomDescription(getCurrentPosition().getDescription());
       uxPrint.displayRoomName(getCurrentPosition().getName());
+      uxPrint.displayRoomItems(getCurrentPosition().getItems());
     }
   }
     public void markAreaDiscovered() {

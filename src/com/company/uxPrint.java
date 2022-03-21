@@ -1,5 +1,6 @@
 package com.company;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class uxPrint {
@@ -171,10 +172,9 @@ public class uxPrint {
     System.out.println("You are in" + description);
   }
 
-  public static void displayInventory(ArrayList<String> getInventory){
-    System.out.println(getInventory);
+  public static void displayRoomItems(ArrayList<String> item){
+    System.out.println("You see the following items in the room: " + item);
   }
-
   public static void printer(String text) throws InterruptedException {
     for (int i = 0; i <= text.length()-1; i++){
       System.out.print(text.charAt(i));
