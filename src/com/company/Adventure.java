@@ -48,7 +48,10 @@ public class Adventure {
           uiPrint.exitPrompt();
           run = false;
         }
-        case "look" -> uiPrint.displayLookDescription(player1.getCurrentPosition().getDescription());
+        case "look" -> {
+          uiPrint.displayLookDescription(player1.getCurrentPosition().getDescription());
+          uiPrint.displayRoomItems(player1.getCurrentPosition().getItems());
+        }
         case "go" -> {
           switch (choice2.toLowerCase(Locale.ROOT)){
             case "north", "n" -> player1.goDirection(player1.getCurrentPosition().getNorth());
