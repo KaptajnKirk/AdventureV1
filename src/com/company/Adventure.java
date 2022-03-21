@@ -53,6 +53,7 @@ public class Adventure {
           uiPrint.displayRoomItems(player1.getCurrentPosition().getItems());
         }
         case "search" ->{
+          uiPrint.searchContainer();
           System.out.println(player1.getCurrentPosition().getChest().getName());
           System.out.println(player1.getCurrentPosition().getChest().getItems());
         }

@@ -20,6 +20,24 @@ public class Player {
     return currentPosition;
   }
 
+  /*public void takeFromChest(String item){
+    boolean isItemInInv = false;
+    for (int x = 0; x < currentPosition.getItems().size(); x++) {
+      if (item.equals(currentPosition.getItems().get(x))) {
+        isItemInInv = true;
+        inventory.add(item);
+        currentPosition.getItems().remove(x);
+        System.out.println("You have added " + item + " to your inventory!");
+      }
+      if (item.equals(" ")) {
+        System.out.println("Are you trying to pickup nothing?\nTry again!");
+      }
+    }
+    if (!isItemInInv) {
+      System.out.println("There is no " + item + " nearby!");
+    }
+  }*/
+
   public void addToInventory(String item) {
     boolean isItemInInv = false;
     for (int x = 0; x < currentPosition.getItems().size(); x++) {

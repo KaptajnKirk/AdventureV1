@@ -2,12 +2,12 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class LootBox {
+public class Container {
 
-  private ArrayList<String> items = new ArrayList<>();
-  private String name;
+  private final ArrayList<String> items = new ArrayList<>();
+  private final String name;
 
-  public LootBox(String name){
+  public Container(String name){
     this.name = name;
   }
 
@@ -17,10 +17,6 @@ public class LootBox {
 
   public void addItems(String item) {
     this.items.add(item);
-  }
-
-  public void setName(String name){
-    this.name = name;
   }
 
   public String getName(){

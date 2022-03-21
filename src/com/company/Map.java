@@ -20,7 +20,7 @@ public class Map {
   private Item fireExtinguisher = new Item("fire extinguisher");
   private Item repairTool = new Item("repair tool");
   private Item powercell = new Item("powercell");
-  private LootBox toolbox = new LootBox("toolbox");
+  private Container toolbox = new Container("toolbox");
 
   private Rooms currentRoom;
 

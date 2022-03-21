@@ -175,10 +175,22 @@ public class uiPrint {
     System.out.println("You see the following items in the room: " + item);
   }
 
+  public static void searchContainer() throws InterruptedException {
+    System.out.print("Searching container");
+    Thread.sleep(1000);
+    System.out.print(".");
+    Thread.sleep(1000);
+    System.out.print(".");
+    Thread.sleep(1000);
+    System.out.print(".");
+    Thread.sleep(1000);
+    System.out.println("\n\n");
+  }
+
   public static void printer(String text) throws InterruptedException {
     for (int i = 0; i <= text.length()-1; i++){
       System.out.print(text.charAt(i));
-      Thread.sleep(5);
+      Thread.sleep(0);
     }
     System.out.println();
   }
