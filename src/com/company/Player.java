@@ -58,19 +58,19 @@ public class Player {
 
   public void goDirection(Rooms direction) throws InterruptedException {
     if (direction == null) {
-      uxPrint.directionNull();
+      uiPrint.directionNull();
     } else {
       setCurrentPosition(direction);
       map.setCurrentRoom(direction);
     }
     if (currentPosition.getDiscovered()) { //Do not display room name when direction is null
-      uxPrint.displayRoomName(getCurrentPosition().getName());
-      uxPrint.displayRoomItems(getCurrentPosition().getItems());
+      uiPrint.displayRoomName(getCurrentPosition().getName());
+      uiPrint.displayRoomItems(getCurrentPosition().getItems());
     } else {
       markAreaDiscovered();
-      uxPrint.displayRoomDescription(getCurrentPosition().getDescription());
-      uxPrint.displayRoomName(getCurrentPosition().getName());
-      uxPrint.displayRoomItems(getCurrentPosition().getItems());
+      uiPrint.displayRoomDescription(getCurrentPosition().getDescription());
+      uiPrint.displayRoomName(getCurrentPosition().getName());
+      uiPrint.displayRoomItems(getCurrentPosition().getItems());
     }
   }
     public void markAreaDiscovered() {
