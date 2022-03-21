@@ -28,11 +28,13 @@ public class Player {
         inventory.add(item);
         currentPosition.getItems().remove(x);
         System.out.println("You have added " + item + " to your inventory!");
-      } if (item == " ") {
+      }
+      if (item == " ") {
         System.out.println("Are you trying to pickup nothing?\nTry again!");
       }
-      } if (isItemInInv == false) {
-        System.out.println("There is no " + item + " nearby!");
+    }
+    if (isItemInInv == false) {
+      System.out.println("There is no " + item + " nearby!");
     }
   }
 
@@ -50,8 +52,9 @@ public class Player {
         currentPosition.addItems(item);
         System.out.println("You have dropped " + item + " on the floor!");
       }
-      }if (i == inventory.size() && isItemInInv== false) {
-        System.out.println("You don't have " + item + " in your inventory!");
+    }
+    if (i == inventory.size() && isItemInInv == false) {
+      System.out.println("You don't have " + item + " in your inventory!");
     }
   }
 
@@ -73,14 +76,15 @@ public class Player {
       uiPrint.displayRoomItems(getCurrentPosition().getItems());
     }
   }
-    public void markAreaDiscovered() {
-      getCurrentPosition().setDiscovered(true);
-    }
 
-    public void displayInventory(){
+  public void markAreaDiscovered() {
+    getCurrentPosition().setDiscovered(true);
+  }
+
+  public void displayInventory() {
     if (inventory.size() == 0) {
       System.out.println("Your inventory is empty!");
-    }else System.out.println("Inventory: " + inventory);
-    }
+    } else System.out.println("Inventory: " + inventory);
   }
+}
 

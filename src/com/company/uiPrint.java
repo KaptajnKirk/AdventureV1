@@ -31,58 +31,58 @@ public class uiPrint {
   public static void displayTitleCard() throws InterruptedException {
     newPage();
     System.out.println("\u001B[34m███████╗███████╗ ██████╗ █████╗ ██████╗ ███████╗    ███████╗██████╗  ██████╗ ███╗   ███╗     █████╗ ██╗   ██╗██████╗  ██████╗ ██████╗  █████╗");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝    ██╔════╝██╔══██╗██╔═══██╗████╗ ████║    ██╔══██╗██║   ██║██╔══██╗██╔═══██╗██╔══██╗██╔══██╗");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("█████╗  ███████╗██║     ███████║██████╔╝█████╗      █████╗  ██████╔╝██║   ██║██╔████╔██║    ███████║██║   ██║██████╔╝██║   ██║██████╔╝███████║");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("██╔══╝  ╚════██║██║     ██╔══██║██╔═══╝ ██╔══╝      ██╔══╝  ██╔══██╗██║   ██║██║╚██╔╝██║    ██╔══██║██║   ██║██╔══██╗██║   ██║██╔══██╗██╔══██║");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("███████╗███████║╚██████╗██║  ██║██║     ███████╗    ██║     ██║  ██║╚██████╔╝██║ ╚═╝ ██║    ██║  ██║╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚══════╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝\u001B[0m");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println();
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println();
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println();
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println();
-    Thread.sleep(100);
+    Thread.sleep(500);
   }
 
   //Displays ASCII art endcard
   public static void displayEndCard() throws InterruptedException {
     newPage();
     System.out.println("\u001B[32m████████╗██╗  ██╗ █████╗ ███╗   ██╗██╗  ██╗    ██╗   ██╗ ██████╗ ██╗   ██╗");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("╚══██╔══╝██║  ██║██╔══██╗████╗  ██║██║ ██╔╝    ╚██╗ ██╔╝██╔═══██╗██║   ██║");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("   ██║   ███████║███████║██╔██╗ ██║█████╔╝      ╚████╔╝ ██║   ██║██║   ██║");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("   ██║   ██╔══██║██╔══██║██║╚██╗██║██╔═██╗       ╚██╔╝  ██║   ██║██║   ██║");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("   ██║   ██║  ██║██║  ██║██║ ╚████║██║  ██╗       ██║   ╚██████╔╝╚██████╔╝");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝       ╚═╝    ╚═════╝  ╚═════╝");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("███████╗ ██████╗ ██████╗     ██████╗ ██╗      █████╗ ██╗   ██╗██╗███╗   ██╗ ██████╗");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("██╔════╝██╔═══██╗██╔══██╗    ██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝██║████╗  ██║██╔════╝");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("█████╗  ██║   ██║██████╔╝    ██████╔╝██║     ███████║ ╚████╔╝ ██║██╔██╗ ██║██║  ███╗");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("██╔══╝  ██║   ██║██╔══██╗    ██╔═══╝ ██║     ██╔══██║  ╚██╔╝  ██║██║╚██╗██║██║   ██║");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("██║     ╚██████╔╝██║  ██║    ██║     ███████╗██║  ██║   ██║   ██║██║ ╚████║╚██████╔╝");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println("╚═╝      ╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝ \u001B[0m");
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println();
-    Thread.sleep(100);
+    Thread.sleep(500);
     System.out.println();
-    Thread.sleep(100);
+    Thread.sleep(5000);
   }
 
   //Intro to the game, basically room 1 description but with a wakeup start sentence
@@ -171,13 +171,14 @@ public class uiPrint {
     System.out.println("You are in" + description);
   }
 
-  public static void displayRoomItems(ArrayList<String> item){
+  public static void displayRoomItems(ArrayList<String> item) {
     System.out.println("You see the following items in the room: " + item);
   }
+
   public static void printer(String text) throws InterruptedException {
     for (int i = 0; i <= text.length()-1; i++){
       System.out.print(text.charAt(i));
-      Thread.sleep(0);
+      Thread.sleep(5);
     }
     System.out.println();
   }
