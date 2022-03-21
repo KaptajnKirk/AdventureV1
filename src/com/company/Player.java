@@ -66,15 +66,12 @@ public class Player {
       setCurrentPosition(direction);
       map.setCurrentRoom(direction);
     }
-    if (currentPosition.getDiscovered()) { //Do not display room name when direction is null
-      uiPrint.displayRoomName(getCurrentPosition().getName());
-      uiPrint.displayRoomItems(getCurrentPosition().getItems());
-    } else {
+    if (!currentPosition.getDiscovered()) {
       markAreaDiscovered();
       uiPrint.displayRoomDescription(getCurrentPosition().getDescription());
-      uiPrint.displayRoomName(getCurrentPosition().getName());
-      uiPrint.displayRoomItems(getCurrentPosition().getItems());
     }
+    uiPrint.displayRoomName(getCurrentPosition().getName());
+    uiPrint.displayRoomItems(getCurrentPosition().getItems());
   }
 
   public void markAreaDiscovered() {

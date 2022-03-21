@@ -37,23 +37,23 @@ public class Adventure {
       String choice2;
       String choice1;
       if(choice.contains(" ")){
-        choice1 = choice.substring(0, choice.indexOf(" "));
-        choice2 = choice.substring((choice.indexOf(" ")+1));
+        choice1 = choice.substring(0, choice.indexOf(" ")).toLowerCase(Locale.ROOT);
+        choice2 = choice.substring((choice.indexOf(" ")+1)).toLowerCase(Locale.ROOT);
       } else { choice1 = choice;
         choice2 = " ";
       }
       uiPrint.newPage();
-      switch (choice1.toLowerCase(Locale.ROOT)) {
-        case "exit" -> {
-          uiPrint.exitPrompt();
-          run = false;
-        }
+      switch (choice1) {
+        case "take" -> player1.addToInventory(choice2.toLowerCase(Locale.ROOT));
+        case "inventory", "inv" -> player1.displayInventory();
+        case "drop" -> player1.dropItem(choice2);
+        case "help" -> uiPrint.displayHelpMenu();
         case "look" -> {
           uiPrint.displayLookDescription(player1.getCurrentPosition().getDescription());
           uiPrint.displayRoomItems(player1.getCurrentPosition().getItems());
         }
         case "go" -> {
-          switch (choice2.toLowerCase(Locale.ROOT)){
+          switch (choice2.toLowerCase(Locale.ROOT)) {
             case "north", "n" -> player1.goDirection(player1.getCurrentPosition().getNorth());
             case "south", "s" -> player1.goDirection(player1.getCurrentPosition().getSouth());
             case "east", "e" -> player1.goDirection(player1.getCurrentPosition().getEast());
@@ -61,10 +61,10 @@ public class Adventure {
             default -> uiPrint.incompleteDirection();
           }
         }
-        case "take" -> player1.addToInventory(choice2.toLowerCase(Locale.ROOT));
-        case "inventory", "inv" -> player1.displayInventory();
-        case "drop" -> player1.dropItem(choice2);
-        case "help" -> uiPrint.displayHelpMenu();
+        case "exit" -> {
+          uiPrint.exitPrompt();
+          run = false;
+        }
         default -> uiPrint.invalidInput();
       }
     }

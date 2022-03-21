@@ -18,35 +18,48 @@ public class Map {
   private Item flashlight = new Item("flashlight");
   private Item survivalKnife = new Item("survival knife");
   private Item fireExtinguisher = new Item("fire extinguisher");
+  private Item repairTool = new Item("repair tool");
+  private Item powercell = new Item("powercell");
 
   private Rooms currentRoom;
 
 
   public Map() {
+    //Linking rooms
     room1.setDiscovered(true); //As it is the room that you spawn in
     room1.setEast(room2);
     room1.setSouth(room4);
+
     room2.setWest(room1);
     room2.setEast(room3);
+
     room3.setSouth(room6);
     room3.setWest(room2);
+
     room4.setNorth(room1);
     room4.setSouth(room7);
+
     room5.setSouth(room8);
+
     room6.setSouth(room9);
     room6.setNorth(room3);
+
     room7.setNorth(room4);
     room7.setEast(room8);
+
     room8.setWest(room7);
     room8.setNorth(room5);
     room8.setEast(room9);
+
     room9.setWest(room8);
     room9.setNorth(room6);
 
-    room1.addItems(lasercutter.getName());
-    room2.addItems(flashlight.getName());
+    //adding items to rooms
+    room3.addItems(lasercutter.getName());
+    room6.addItems(flashlight.getName());
     room3.addItems(survivalKnife.getName());
-    room6.addItems(fireExtinguisher.getName());
+    room8.addItems(fireExtinguisher.getName());
+    room4.addItems(repairTool.getName());
      }
 
   public Rooms getRoom1() {

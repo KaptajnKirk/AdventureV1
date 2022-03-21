@@ -77,7 +77,6 @@ public class Rooms {
   public void addItems(String item) {
     this.items.add(item);
   }
-
   public ArrayList<String> getItems(){
     return items;
   }
