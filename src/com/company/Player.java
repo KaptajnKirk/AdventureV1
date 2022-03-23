@@ -6,10 +6,12 @@ public class Player {
   Map map = new Map();
   private Rooms currentPosition;
   private final ArrayList<String> inventory;
+  private int health;
 
   public Player(Rooms room) {
     this.currentPosition = room;
     this.inventory = new ArrayList<>();
+    this.health = 100;
   }
 
   public void setCurrentPosition(Rooms currentRoom) {
@@ -18,6 +20,14 @@ public class Player {
 
   public Rooms getCurrentPosition() {
     return currentPosition;
+  }
+
+  public int getHealth(){
+    return health;
+  }
+
+  public void setHealth(int health){
+    this.health = health;
   }
 
   public void takeFromChest(String item){
@@ -94,6 +104,14 @@ public class Player {
 
   public void markAreaDiscovered() {
     getCurrentPosition().setDiscovered(true);
+  }
+
+  public void eat(Item food){
+    Item temp = food;
+    if(temp instanceof Food){
+      this.health += ((Food) temp).getHealth();
+      uiPrint.displayEat(temp.getName());
+    }
   }
 
   public void displayInventory() {

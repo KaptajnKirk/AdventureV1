@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class uiPrint {
 
-
   public uiPrint(){
 
   }
@@ -191,6 +190,10 @@ public class uiPrint {
 
   public static void displayCloseContainer() throws InterruptedException {
     printer("Closing container");
+  }
+
+  public static void displayEat(String name) {
+    System.out.print("You have eaten " + name  );
   }
 
   public static void printer(String text) throws InterruptedException {
