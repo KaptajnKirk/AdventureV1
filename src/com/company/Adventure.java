@@ -98,6 +98,8 @@ public class Adventure {
           run = false;
         }
         default -> uiPrint.invalidInput();
+      }if (player1.getHealth() <= 0){
+        run = false;
       }
     }
     uiPrint.displayEndCard();

@@ -22,7 +22,7 @@ public class Map {
   private Item powercell = new Item("powercell");
   private Container toolbox = new Container("toolbox");
   private Food nutritionBlock = new Food("nutrition block", 20);
-  private Food rottenApple = new Food("rotten apple",-10);
+  private Food rottenApple = new Food("rotten apple",-50);
 
   private Rooms currentRoom;
 
