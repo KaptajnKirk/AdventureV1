@@ -112,6 +112,8 @@ public class uiPrint {
     System.out.println("\ttake 'item'\t\t- Place a given item in your inventory ");
     System.out.println("\tdrop 'item'\t\t- Drop the given item on the floor in current room");
     System.out.println("\tinventory\t\t- Open your inventory");
+    System.out.println("\tsearch\t\t- Search nearby container");
+    System.out.println("\tclose\t\t- Close nearby container");
     System.out.println("\n\u001B[34m*****************************************[Menu]********************************************************");
     System.out.println("*******************************************************************************************************\u001B[0m");
   }
@@ -175,7 +177,7 @@ public class uiPrint {
     System.out.println("You see the following items in the room: " + item);
   }
 
-  public static void searchContainer() throws InterruptedException {
+  public static void displaySearchContainer() throws InterruptedException {
     System.out.print("Searching container");
     Thread.sleep(1000);
     System.out.print(".");
@@ -185,6 +187,10 @@ public class uiPrint {
     System.out.print(".");
     Thread.sleep(1000);
     System.out.println("\n\n");
+  }
+
+  public static void displayCloseContainer() throws InterruptedException {
+    printer("Closing container");
   }
 
   public static void printer(String text) throws InterruptedException {

@@ -7,7 +7,7 @@ public class Container {
   private final ArrayList<String> items = new ArrayList<>();
   private final String name;
 
-  public Container(String name){
+  public Container(String name) {
     this.name = name;
   }
 
@@ -19,7 +19,7 @@ public class Container {
     this.items.add(item);
   }
 
-  public String getName(){
+  public String getName() {
     return name;
   }
 }

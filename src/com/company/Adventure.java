@@ -9,6 +9,18 @@ public class Adventure {
   Player player1 = new Player(map.getRoom1());
   Scanner scanner = new Scanner(System.in);
   private Music music;
+  String choice2;
+  String choice1;
+
+  public void choiceSplitter(){
+    String choice = scanner.nextLine();
+    if(choice.contains(" ")){
+      choice1 = choice.substring(0, choice.indexOf(" ")).toLowerCase(Locale.ROOT);
+      choice2 = choice.substring((choice.indexOf(" ")+1)).toLowerCase(Locale.ROOT);
+    } else { choice1 = choice;
+      choice2 = " ";
+    }
+  }
 
   //The main game method with while loop that runs until user types exit
   public void game() throws InterruptedException {
@@ -33,18 +45,10 @@ public class Adventure {
     boolean run = true;
     while (run) {
       uiPrint.nextMovePrompt();
-      String choice = scanner.nextLine();
-      String choice2;
-      String choice1;
-      if(choice.contains(" ")){
-        choice1 = choice.substring(0, choice.indexOf(" ")).toLowerCase(Locale.ROOT);
-        choice2 = choice.substring((choice.indexOf(" ")+1)).toLowerCase(Locale.ROOT);
-      } else { choice1 = choice;
-        choice2 = " ";
-      }
+      choiceSplitter();
       uiPrint.newPage();
       switch (choice1) {
-        case "take" -> player1.addToInventory(choice2.toLowerCase(Locale.ROOT));
+        case "take" -> player1.addToInventory(choice2);
         case "inventory", "inv" -> player1.displayInventory();
         case "drop" -> player1.dropItem(choice2);
         case "help" -> uiPrint.displayHelpMenu();
@@ -52,13 +56,27 @@ public class Adventure {
           uiPrint.displayLookDescription(player1.getCurrentPosition().getDescription());
           uiPrint.displayRoomItems(player1.getCurrentPosition().getItems());
         }
-        case "search" ->{
-          uiPrint.searchContainer();
+        case "search" -> {
+          uiPrint.displaySearchContainer();
           System.out.println(player1.getCurrentPosition().getChest().getName());
           System.out.println(player1.getCurrentPosition().getChest().getItems());
+          boolean run2 = true;
+          while (run2) {
+            choiceSplitter();
+            uiPrint.newPage();
+            switch (choice1) {
+              case "help" -> uiPrint.displayHelpMenu();
+              case "take" -> player1.takeFromChest(choice2);
+              case "close" -> {
+                uiPrint.displayCloseContainer();
+                run2 = false;
+              }
+              default -> uiPrint.invalidInput();
+            }
+          }
         }
         case "go" -> {
-          switch (choice2.toLowerCase(Locale.ROOT)) {
+          switch (choice2) {
             case "north", "n" -> player1.goDirection(player1.getCurrentPosition().getNorth());
             case "south", "s" -> player1.goDirection(player1.getCurrentPosition().getSouth());
             case "east", "e" -> player1.goDirection(player1.getCurrentPosition().getEast());
