@@ -22,8 +22,7 @@ public class Adventure {
     }
   }
 
-  //The main game method with while loop that runs until user types exit
-  public void game() throws InterruptedException {
+  public void gameIntro() throws InterruptedException {
     music = new Music();
     uiPrint ux = new uiPrint();
     music.playMusic();
@@ -42,6 +41,11 @@ public class Adventure {
     uiPrint.displayWakeUp();
     uiPrint.displayRoomName(player1.getCurrentPosition().getName());
     uiPrint.displayRoomItems(player1.getCurrentPosition().getItems());
+  }
+
+  //The main game method with while loop that runs until user types exit
+  public void game() throws InterruptedException {
+    gameIntro();
     boolean run = true;
     while (run) {
       uiPrint.nextMovePrompt();
@@ -68,8 +72,10 @@ public class Adventure {
             choiceSplitter();
             uiPrint.newPage();
             switch (choice1) {
+              case "go" -> System.out.println("You have to close the container before moving on");
               case "help" -> uiPrint.displayHelpMenu();
               case "take" -> player1.takeFromChest(choice2);
+              case "inventory", "inv" -> player1.displayInventory();
               case "close" -> {
                 uiPrint.displayCloseContainer();
                 run2 = false;
