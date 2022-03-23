@@ -11,7 +11,7 @@ public class Rooms {
   private Rooms west;
   private String description;
   private String name;
-  private ArrayList<String> items = new ArrayList<>();
+  private ArrayList<Item> items = new ArrayList<>();
   private Container chest;
 
 
@@ -75,10 +75,10 @@ public class Rooms {
     this.discovered = discovered;
   }
 
-  public void addItems(String item) {
+  public void addItems(Item item) {
     this.items.add(item);
   }
-  public ArrayList<String> getItems(){
+  public ArrayList<Item> getItems(){
     return items;
   }
 

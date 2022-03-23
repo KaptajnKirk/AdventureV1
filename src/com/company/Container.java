@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 public class Container {
 
-  private final ArrayList<String> items = new ArrayList<>();
+  private final ArrayList<Item> items = new ArrayList<>();
   private final String name;
 
   public Container(String name) {
     this.name = name;
   }
 
-  public ArrayList<String> getItems() {
+  public ArrayList<Item> getItems() {
     return items;
   }
 
-  public void addItems(String item) {
+  public void addItems(Item item) {
     this.items.add(item);
   }
 

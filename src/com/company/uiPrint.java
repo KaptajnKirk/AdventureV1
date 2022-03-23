@@ -122,11 +122,6 @@ public class uiPrint {
     System.out.println("\nPress 'ENTER' to continue");
   }
 
-  //Prompt to tell the command for help, in the start
-  public static void helpPrompt()throws InterruptedException{
-    printer("Type 'help' at any stage during the adventure to get a list of commands.");
-  }
-
   //Final enter prompt, starts the game
   public static void enterWakeUpPromt()throws InterruptedException{
     System.out.println("\nPress 'ENTER' to wake up and start the adventure");
@@ -172,7 +167,7 @@ public class uiPrint {
     System.out.println("You are in" + description);
   }
 
-  public static void displayRoomItems(ArrayList<String> item) {
+  public static void displayRoomItems(ArrayList<Item> item) {
     System.out.println("You see the following items in the room: " + item);
   }
 

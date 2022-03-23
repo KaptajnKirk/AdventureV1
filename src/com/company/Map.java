@@ -55,15 +55,15 @@ public class Map {
     room9.setWest(room8);
     room9.setNorth(room6);
 
-    toolbox.addItems(lasercutter.getName());
+    toolbox.addItems(lasercutter);
     room1.addChest(toolbox);
 
     //adding items to rooms
-    room3.addItems(lasercutter.getName());
-    room6.addItems(flashlight.getName());
-    room3.addItems(survivalKnife.getName());
-    room8.addItems(fireExtinguisher.getName());
-    room4.addItems(repairTool.getName());
+    room3.addItems(lasercutter);
+    room6.addItems(flashlight);
+    room3.addItems(survivalKnife);
+    room8.addItems(fireExtinguisher);
+    room4.addItems(repairTool);
 
      }
 
