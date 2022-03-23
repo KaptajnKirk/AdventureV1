@@ -127,6 +127,9 @@ public class Player {
             this.health += ((Food) temp).getHealth();
             uiPrint.displayEat(temp.getName(), ((Food) temp).getHealth());
             inventory.remove(temp);
+            if (health>100){
+              health=100;
+            }
           } else {
             System.out.println("You cant eat " + food);
           }
