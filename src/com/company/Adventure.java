@@ -62,6 +62,7 @@ public class Adventure {
           System.out.println(player1.getCurrentPosition().getChest().getItems());
           boolean run2 = true;
           while (run2) {
+            uiPrint.nextMovePrompt();
             choiceSplitter();
             uiPrint.newPage();
             switch (choice1) {

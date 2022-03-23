@@ -111,8 +111,8 @@ public class uiPrint {
     System.out.println("\ttake 'item'\t\t- Place a given item in your inventory ");
     System.out.println("\tdrop 'item'\t\t- Drop the given item on the floor in current room");
     System.out.println("\tinventory\t\t- Open your inventory");
-    System.out.println("\tsearch\t\t- Search nearby container");
-    System.out.println("\tclose\t\t- Close nearby container");
+    System.out.println("\tsearch\t\t\t- Search nearby container");
+    System.out.println("\tclose\t\t\t- Close nearby container");
     System.out.println("\n\u001B[34m*****************************************[Menu]********************************************************");
     System.out.println("*******************************************************************************************************\u001B[0m");
   }
