@@ -111,8 +111,10 @@ public class uiPrint {
     System.out.println("\ttake 'item'\t\t- Place a given item in your inventory ");
     System.out.println("\tdrop 'item'\t\t- Drop the given item on the floor in current room");
     System.out.println("\tinventory\t\t- Open your inventory");
-    System.out.println("\tsearch\t\t- Search nearby container");
-    System.out.println("\tclose\t\t- Close nearby container");
+    System.out.println("\tsearch\t\t\t- Search nearby container");
+    System.out.println("\tclose\t\t\t- Close nearby container");
+    System.out.println("\theath\t\t\t- display current HP");
+    System.out.println("\teat 'food'\t\t- eat given food");
     System.out.println("\n\u001B[34m*****************************************[Menu]********************************************************");
     System.out.println("*******************************************************************************************************\u001B[0m");
   }
@@ -187,8 +189,20 @@ public class uiPrint {
     printer("Closing container");
   }
 
-  public static void displayEat(String name) {
-    System.out.print("You have eaten " + name  );
+  public static void displayEat(String name, int health) {
+    System.out.println("You have eaten " + name  );
+    if (health < 0){
+      System.out.println("You have lost " + -health + " HP");
+    }else{
+      System.out.println("You have gained " + health + " HP");
+    }
+
+  }
+
+
+
+  public static void displayHealth(int health){
+    System.out.println("Your HP is " + health);
   }
 
   public static void printer(String text) throws InterruptedException {

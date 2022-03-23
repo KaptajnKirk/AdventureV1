@@ -21,6 +21,8 @@ public class Map {
   private Item repairTool = new Item("repair tool");
   private Item powercell = new Item("powercell");
   private Container toolbox = new Container("toolbox");
+  private Food nutritionBlock = new Food("nutrition block", 20);
+  private Food rottenApple = new Food("rotten apple",-10);
 
   private Rooms currentRoom;
 
@@ -64,6 +66,9 @@ public class Map {
     room3.addItems(survivalKnife);
     room8.addItems(fireExtinguisher);
     room4.addItems(repairTool);
+
+    room1.addItems(nutritionBlock);
+    room1.addItems(rottenApple);
 
      }
 

@@ -91,37 +91,53 @@ public class Player {
   }
 
 
-    public void goDirection (Rooms direction) throws InterruptedException {
-      if (direction == null) {
-        uiPrint.directionNull();
-      } else {
-        setCurrentPosition(direction);
-        map.setCurrentRoom(direction);
-      }
-      if (!currentPosition.getDiscovered()) {
-        markAreaDiscovered();
-        uiPrint.displayRoomDescription(getCurrentPosition().getDescription());
-      }
-      uiPrint.displayRoomName(getCurrentPosition().getName());
-      uiPrint.displayRoomItems(getCurrentPosition().getItems());
+  public void goDirection(Rooms direction) throws InterruptedException {
+    if (direction == null) {
+      uiPrint.directionNull();
+    } else {
+      setCurrentPosition(direction);
+      map.setCurrentRoom(direction);
     }
-
-    public void markAreaDiscovered () {
-      getCurrentPosition().setDiscovered(true);
+    if (!currentPosition.getDiscovered()) {
+      markAreaDiscovered();
+      uiPrint.displayRoomDescription(getCurrentPosition().getDescription());
     }
+    uiPrint.displayRoomName(getCurrentPosition().getName());
+    uiPrint.displayRoomItems(getCurrentPosition().getItems());
+  }
 
-    public void eat (Item food){
-      Item temp = food;
-      if (temp instanceof Food) {
-        this.health += ((Food) temp).getHealth();
-        uiPrint.displayEat(temp.getName());
-      }
+  public void markAreaDiscovered() {
+    getCurrentPosition().setDiscovered(true);
+  }
+
+  public void eat(String food) {
+    Item temp;
+    boolean isFoodInInv = false;
+    if (food.equals(" ")) {
+      System.out.println("Please specify what you wanna eat");
+    } else {
+      for (int x = 0; x < inventory.size(); x++) {
+        if (food.equals(inventory.get(x).getName())) {
+          isFoodInInv = true;
+          temp = inventory.get(x);
+          if (temp instanceof Food) {
+            this.health += ((Food) temp).getHealth();
+            uiPrint.displayEat(temp.getName(), ((Food) temp).getHealth());
+            inventory.remove(temp);
+          } else {
+            System.out.println("You cant eat " + food);
+          }
+        }
+      } if (!isFoodInInv) {
+        System.out.println("You dont have " + food + " in your inventory");
     }
-
-    public void displayInventory () {
-      if (inventory.size() == 0) {
-        System.out.println("Your inventory is empty!");
-      } else System.out.println("Inventory: " + inventory);
     }
   }
+
+  public void displayInventory() {
+    if (inventory.size() == 0) {
+      System.out.println("Your inventory is empty!");
+    } else System.out.println("Inventory: " + inventory);
+  }
+}
 

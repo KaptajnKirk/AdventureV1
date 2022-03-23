@@ -56,6 +56,8 @@ public class Adventure {
           uiPrint.displayLookDescription(player1.getCurrentPosition().getDescription());
           uiPrint.displayRoomItems(player1.getCurrentPosition().getItems());
         }
+        case "health" -> uiPrint.displayHealth(player1.getHealth());
+        case "eat" -> player1.eat(choice2);
         case "search" -> {
           uiPrint.displaySearchContainer();
           System.out.println(player1.getCurrentPosition().getChest().getName());
