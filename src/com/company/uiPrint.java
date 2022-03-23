@@ -201,8 +201,15 @@ public class uiPrint {
 
 
 
-  public static void displayHealth(int health){
-    System.out.println("Your HP is " + health);
+  public static void displayHealth(int health) {
+    switch ((int)health/20) {
+      case (0) -> System.out.println("Your health is critical. Avoid combat at all costs!");
+      case (1) -> System.out.println("Your health is low. You should not seek combat");
+      case (2) -> System.out.println("Your health is okay. You are lighlt injured");
+      case (3) -> System.out.println("Your health is good. You can engage in combat");
+      case (4) -> System.out.println("Your health is very good. You can safely engage in combat");
+      case (5) -> System.out.println("You are full health! Seek out your enemies!");
+    }
   }
 
   public static void printer(String text) throws InterruptedException {
