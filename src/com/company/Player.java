@@ -42,6 +42,7 @@ public class Player {
           isItemInInv = true;
           inventory.add(temp);
           currentPosition.getChest().getItems().remove(x);
+          x = getCurrentPosition().getChest().getItems().size();
           System.out.println("You have added " + item + " to your inventory!");
         }
       }
@@ -63,6 +64,7 @@ public class Player {
           isItemInInv = true;
           inventory.add(temp);
           currentPosition.getItems().remove(x);
+          x = currentPosition.getItems().size();
           System.out.println("You have added " + item + " to your inventory!");
         }
       }
@@ -84,6 +86,7 @@ public class Player {
           isItemInInv = true;
           inventory.remove(temp);
           currentPosition.addItems(temp);
+          x = inventory.size();
           System.out.println("You have dropped " + item + " on the floor!");
         }
       }
@@ -127,6 +130,7 @@ public class Player {
             this.health += ((Food) temp).getHealth();
             uiPrint.displayEat(temp.getName(), ((Food) temp).getHealth());
             inventory.remove(temp);
+            x = inventory.size();
             if (health>100){
               health=100;
             }

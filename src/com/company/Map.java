@@ -69,7 +69,8 @@ public class Map {
 
     room1.addItems(nutritionBlock);
     room1.addItems(rottenApple);
-
+    room1.addItems(rottenApple);
+    room1.addItems(rottenApple);
      }
 
   public Rooms getRoom1() {

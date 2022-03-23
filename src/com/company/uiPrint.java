@@ -113,8 +113,8 @@ public class uiPrint {
     System.out.println("\tinventory\t\t- Open your inventory");
     System.out.println("\tsearch\t\t\t- Search nearby container");
     System.out.println("\tclose\t\t\t- Close nearby container");
-    System.out.println("\theath\t\t\t- display current HP");
-    System.out.println("\teat 'food'\t\t- eat given food");
+    System.out.println("\theath\t\t\t- Display current HP");
+    System.out.println("\teat 'food'\t\t- Eat given food");
     System.out.println("\n\u001B[34m*****************************************[Menu]********************************************************");
     System.out.println("*******************************************************************************************************\u001B[0m");
   }
@@ -203,7 +203,7 @@ public class uiPrint {
 
   public static void displayHealth(int health) {
     System.out.print("Your HP is currently " + health);
-    switch ((int)health/20) {
+    switch (health/20) {
       case (0) -> System.out.print(". Your health is critical. Avoid combat at all costs!");
       case (1) -> System.out.print(". Your health is low. You should not seek combat");
       case (2) -> System.out.print(". Your health is okay. You are lighlt injured");
