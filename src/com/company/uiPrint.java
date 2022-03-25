@@ -3,6 +3,15 @@ package com.company;
 import java.util.ArrayList;
 
 public class uiPrint {
+  static final String BLACK = "\033[0;30m";   // BLACK
+  static final String RED = "\033[0;31m";     // RED
+  static final String GREEN = "\033[0;32m";   // GREEN
+  static final String YELLOW = "\033[0;33m";  // YELLOW
+  static final String BLUE = "\033[0;34m";    // BLUE
+  static final String PURPLE = "\033[0;35m";  // PURPLE
+  static final String CYAN = "\033[0;36m";    // CYAN
+  static final String WHITE = "\033[0;37m";   // WHITE
+  static final String RESET = "\u001B[0m";    // reset colour
 
   public uiPrint(){
 
@@ -102,8 +111,8 @@ public class uiPrint {
 
   //display of the HELP menu
   public static void displayHelpMenu() {
-    System.out.println("\u001B[34m*******************************************************************************************************");
-    System.out.println("*****************************************[HELP]********************************************************\u001B[0m");
+
+    System.out.println(CYAN + "╔═══════════════════════════════════════════════════HELP═══════════════════════════════════════════════╗" + RESET);
     System.out.println("\n\texit\t\t\t- Exit the game");
     System.out.println("\tlook\t\t\t- Get the description of current room");
     System.out.println("\tgo 'direction'\t- Go in the given direction(ex. go north)");
@@ -115,8 +124,7 @@ public class uiPrint {
     System.out.println("\tclose\t\t\t- Close nearby container");
     System.out.println("\theath\t\t\t- Display current HP");
     System.out.println("\teat 'food'\t\t- Eat given food");
-    System.out.println("\n\u001B[34m*****************************************[Menu]********************************************************");
-    System.out.println("*******************************************************************************************************\u001B[0m");
+    System.out.println(CYAN + "\n╚══════════════════════════════════════════════════════════════════════════════════════════════════════╝" + RESET);
   }
 
   //Press Enter prompt for start
@@ -186,7 +194,7 @@ public class uiPrint {
   }
 
   public static void displayCloseContainer() throws InterruptedException {
-    printer("Closing container");
+    printer("Container is now closed.");
   }
 
   public static void displayEat(String name, int health) {
@@ -210,6 +218,28 @@ public class uiPrint {
       case (3) -> System.out.print(". Your health is good. You can engage in combat");
       case (4) -> System.out.print(". Your health is very good. You can safely engage in combat");
       case (5) -> System.out.print(". You are full health! Seek out your enemies!");
+    }
+  }
+
+  public static void displayPlayerUI(int health, Item weapon){
+    System.out.println("\n╔══════════HP════════════╗");
+    switch(health/10){
+      case 0 -> System.out.println("║  " + RED +    "██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒" + RESET + "  ║");
+      case 1 -> System.out.println("║  " + RED +    "████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒" + RESET + "  ║");
+      case 2 -> System.out.println("║  " + RED +    "██████▒▒▒▒▒▒▒▒▒▒▒▒▒▒" + RESET + "  ║");
+      case 3 -> System.out.println("║  " + YELLOW + "████████▒▒▒▒▒▒▒▒▒▒▒▒" + RESET + "  ║");
+      case 4 -> System.out.println("║  " + YELLOW + "█████████▒▒▒▒▒▒▒▒▒▒▒" + RESET + "  ║");
+      case 5 -> System.out.println("║  " + YELLOW + "██████████▒▒▒▒▒▒▒▒▒▒" + RESET + "  ║");
+      case 6 -> System.out.println("║  " + YELLOW + "████████████▒▒▒▒▒▒▒▒" + RESET + "  ║");
+      case 7 -> System.out.println("║  " + GREEN +  "██████████████▒▒▒▒▒▒" + RESET + "  ║");
+      case 8 -> System.out.println("║  " + GREEN +  "████████████████▒▒▒▒" + RESET + "  ║");
+      case 9 -> System.out.println("║  " + GREEN +  "██████████████████▒▒" + RESET + "  ║");
+      case 10 ->System.out.println("║  " + GREEN +  "████████████████████" + RESET + "  ║");
+    }
+    System.out.println("╚════════════════════════╝");
+    if (weapon != null){
+      System.out.println("\n══════WEAPON EQUIPPED═════");
+      System.out.println("\t\t" + weapon);
     }
   }
 

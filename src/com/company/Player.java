@@ -1,12 +1,17 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class Player {
+  String choice1;
+  String choice2;
   Map map = new Map();
   private Rooms currentPosition;
   private final ArrayList<Item> inventory;
   private int health;
+  private Item equipedWeapon;
 
   public Player(Rooms room) {
     this.currentPosition = room;
@@ -26,8 +31,20 @@ public class Player {
     return health;
   }
 
-  public void setHealth(int health) {
-    this.health = health;
+  public Item getEquipedWeapon(){
+    return equipedWeapon;
+  }
+
+  public void choiceSplitter() {
+    Scanner scanner = new Scanner(System.in);
+    String choice = scanner.nextLine();
+    if (choice.contains(" ")) {
+      choice1 = choice.substring(0, choice.indexOf(" ")).toLowerCase(Locale.ROOT);
+      choice2 = choice.substring((choice.indexOf(" ") + 1)).toLowerCase(Locale.ROOT);
+    } else {
+      choice1 = choice;
+      choice2 = " ";
+    }
   }
 
   public void takeFromChest(String item) {
@@ -67,8 +84,7 @@ public class Player {
           x = currentPosition.getItems().size();
           System.out.println("You have added " + item + " to your inventory!");
         }
-      }
-      if (!isItemInInv) {
+      }if (!isItemInInv) {
         System.out.println("There is no " + item + " nearby!");
       }
     }
@@ -97,6 +113,58 @@ public class Player {
   }
 
 
+  //TODO: make it so only weapons can be equipped
+  public void equipWeapon(String item) {
+    Item temp;
+    boolean isItemInInv = false;
+    if (item.equals(" ")) {
+      System.out.println("Are you trying to equip nothing?\nTry again!");
+    } else {
+      for (int x = 0; x < inventory.size(); x++) {
+        isItemInInv = true;
+        temp = inventory.get(x);
+        if (equipedWeapon != null) {
+          inventory.add(equipedWeapon);
+          equipedWeapon = temp;
+          System.out.println("You have replaced your equipped " + equipedWeapon + " with " + item);
+        } else {
+          inventory.remove(x);
+          equipedWeapon = temp;
+          System.out.println("You have equipped " + item);
+        }
+      }
+    }if (!isItemInInv) {
+      System.out.println("You do not have " + item + " in your inventory!");
+    }
+  }
+
+  public void searchContainer() throws InterruptedException {
+    if (currentPosition.getChest() == null) {
+      System.out.println("There are no containers to search in this room!");
+    } else {
+      uiPrint.displaySearchContainer();
+      System.out.println(currentPosition.getChest().getName());
+      System.out.println(currentPosition.getChest().getItems());
+      boolean run2 = true;
+      while (run2) {
+        uiPrint.nextMovePrompt();
+        choiceSplitter();
+        uiPrint.newPage();
+        switch (choice1) {
+          case "go" -> System.out.println("You have to close the container before moving on");
+          case "help" -> uiPrint.displayHelpMenu();
+          case "take" -> takeFromChest(choice2);
+          case "inventory", "inv" -> displayInventory();
+          case "close" -> {
+            uiPrint.displayCloseContainer();
+            run2 = false;
+          }
+          default -> uiPrint.invalidInput();
+        }
+      }
+    }
+  }
+
   public void goDirection(Rooms direction) throws InterruptedException {
     if (direction == null) {
       uiPrint.directionNull();
@@ -116,7 +184,7 @@ public class Player {
     getCurrentPosition().setDiscovered(true);
   }
 
-  public void eat(String food) {
+  public void eatItem(String food) {
     Item temp;
     boolean isFoodInInv = false;
     if (food.equals(" ")) {
@@ -131,17 +199,23 @@ public class Player {
             uiPrint.displayEat(temp.getName(), ((Food) temp).getHealth());
             inventory.remove(temp);
             x = inventory.size();
-            if (health>100){
-              health=100;
+            if (health > 100) {
+              health = 100;
             }
           } else {
             System.out.println("You cant eat " + food);
           }
         }
-      } if (!isFoodInInv) {
+      }
+      if (!isFoodInInv) {
         System.out.println("You dont have " + food + " in your inventory");
+      }
     }
-    }
+  }
+
+  public void lookRoom(){
+    uiPrint.displayLookDescription(currentPosition.getDescription());
+    uiPrint.displayRoomItems(currentPosition.getItems());
   }
 
   public void displayInventory() {
