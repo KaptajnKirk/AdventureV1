@@ -39,25 +39,25 @@ public class uiPrint {
   public static void displayTitleCard() throws InterruptedException {
     newPage();
     System.out.println("\u001B[34m███████╗███████╗ ██████╗ █████╗ ██████╗ ███████╗    ███████╗██████╗  ██████╗ ███╗   ███╗     █████╗ ██╗   ██╗██████╗  ██████╗ ██████╗  █████╗");
-    Thread.sleep(500);
+    //Thread.sleep(500);
     System.out.println("██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝    ██╔════╝██╔══██╗██╔═══██╗████╗ ████║    ██╔══██╗██║   ██║██╔══██╗██╔═══██╗██╔══██╗██╔══██╗");
-    Thread.sleep(500);
+    //Thread.sleep(500);
     System.out.println("█████╗  ███████╗██║     ███████║██████╔╝█████╗      █████╗  ██████╔╝██║   ██║██╔████╔██║    ███████║██║   ██║██████╔╝██║   ██║██████╔╝███████║");
-    Thread.sleep(500);
+    //Thread.sleep(500);
     System.out.println("██╔══╝  ╚════██║██║     ██╔══██║██╔═══╝ ██╔══╝      ██╔══╝  ██╔══██╗██║   ██║██║╚██╔╝██║    ██╔══██║██║   ██║██╔══██╗██║   ██║██╔══██╗██╔══██║");
-    Thread.sleep(500);
+    //Thread.sleep(500);
     System.out.println("███████╗███████║╚██████╗██║  ██║██║     ███████╗    ██║     ██║  ██║╚██████╔╝██║ ╚═╝ ██║    ██║  ██║╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║");
-    Thread.sleep(500);
+    //Thread.sleep(500);
     System.out.println("╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚══════╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝\u001B[0m");
-    Thread.sleep(500);
+    //Thread.sleep(500);
     System.out.println();
-    Thread.sleep(500);
+    //Thread.sleep(500);
     System.out.println();
-    Thread.sleep(500);
+    //Thread.sleep(500);
     System.out.println();
-    Thread.sleep(500);
+    //Thread.sleep(500);
     System.out.println();
-    Thread.sleep(500);
+    //Thread.sleep(500);
   }
 
   //Displays ASCII art endcard
@@ -238,8 +238,7 @@ public class uiPrint {
     }
     System.out.println("╚════════════════════════╝");
     if (weapon != null){
-      System.out.println("\n══════WEAPON EQUIPPED═════");
-      System.out.println("\t\t" + weapon);
+      System.out.println("WEAPON SLOT [1]: " + weapon);
     }
   }
 

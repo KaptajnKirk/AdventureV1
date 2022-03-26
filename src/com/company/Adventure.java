@@ -8,7 +8,7 @@ public class Adventure {
   Map map = new Map();
   Player player1 = new Player(map.getRoom1());
   Scanner scanner = new Scanner(System.in);
-  private Music music;
+  private final Music music = new Music();
   private String choice2;
   private String choice1;
 
@@ -18,15 +18,13 @@ public class Adventure {
       choice1 = choice.substring(0, choice.indexOf(" ")).toLowerCase(Locale.ROOT);
       choice2 = choice.substring((choice.indexOf(" ") + 1)).toLowerCase(Locale.ROOT);
     } else {
-      choice1 = choice;
+      choice1 = choice.toLowerCase(Locale.ROOT);
       choice2 = " ";
     }
   }
 
   public void gameIntro() throws InterruptedException {
-    music = new Music();
-    uiPrint ux = new uiPrint();
-    music.playMusic();
+    //music.playMusic();
     uiPrint.displayTitleCard();
     uiPrint.enterPromt();
     String next = scanner.nextLine();
@@ -45,7 +43,7 @@ public class Adventure {
   }
 
   public void displayNextMove() throws InterruptedException {
-    uiPrint.displayPlayerUI(player1.getHealth(), player1.getEquipedWeapon());
+    uiPrint.displayPlayerUI(player1.getHealth(), player1.getEquippedWeapon());
     uiPrint.nextMovePrompt();
     choiceSplitter();
     uiPrint.newPage();

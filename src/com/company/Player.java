@@ -11,7 +11,9 @@ public class Player {
   private Rooms currentPosition;
   private final ArrayList<Item> inventory;
   private int health;
-  private Item equipedWeapon;
+  private Item equippedRanged;
+  private Item equippedMelee;
+
 
   public Player(Rooms room) {
     this.currentPosition = room;
@@ -31,8 +33,8 @@ public class Player {
     return health;
   }
 
-  public Item getEquipedWeapon(){
-    return equipedWeapon;
+  public Item getEquippedWeapon(){
+    return equippedRanged;
   }
 
   public void choiceSplitter() {
@@ -42,7 +44,7 @@ public class Player {
       choice1 = choice.substring(0, choice.indexOf(" ")).toLowerCase(Locale.ROOT);
       choice2 = choice.substring((choice.indexOf(" ") + 1)).toLowerCase(Locale.ROOT);
     } else {
-      choice1 = choice;
+      choice1 = choice.toLowerCase(Locale.ROOT);
       choice2 = " ";
     }
   }
@@ -113,7 +115,6 @@ public class Player {
   }
 
 
-  //TODO: make it so only weapons can be equipped
   public void equipWeapon(String item) {
     Item temp;
     boolean isItemInInv = false;
@@ -123,14 +124,21 @@ public class Player {
       for (int x = 0; x < inventory.size(); x++) {
         isItemInInv = true;
         temp = inventory.get(x);
-        if (equipedWeapon != null) {
-          inventory.add(equipedWeapon);
-          equipedWeapon = temp;
-          System.out.println("You have replaced your equipped " + equipedWeapon + " with " + item);
-        } else {
-          inventory.remove(x);
-          equipedWeapon = temp;
-          System.out.println("You have equipped " + item);
+        if (item.equals(temp.getName())) {
+          if (temp instanceof Weapon) {
+            if (equippedRanged != null) {
+              System.out.println("You have replaced your equipped " + equippedRanged + " with " + item);
+              inventory.add(equippedRanged);
+              inventory.remove(x);
+              equippedRanged = temp;
+              x = inventory.size();
+            } else {
+              System.out.println("You have equipped " + item);
+              inventory.remove(x);
+              equippedRanged = temp;
+              x = inventory.size();
+            }
+          } else System.out.println("You can only equip weapons!");
         }
       }
     }if (!isItemInInv) {

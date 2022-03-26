@@ -62,6 +62,7 @@ public class Map {
     room1.addItems(rottenApple);
     room1.addItems(rottenApple);
     room1.addItems(laserGun);
+    room1.addItems(sword);
      }
 
   public Rooms getRoom1() {
