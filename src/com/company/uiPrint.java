@@ -124,6 +124,8 @@ public class uiPrint {
     System.out.println("\tclose\t\t\t- Close nearby container");
     System.out.println("\theath\t\t\t- Display current HP");
     System.out.println("\teat 'food'\t\t- Eat given food");
+    System.out.println("\tequip 'weapon'\t- Equip given weapon");
+    System.out.println("\tattack\t\t\t- Attack with equipped weapon");
     System.out.println(CYAN + "\n╚══════════════════════════════════════════════════════════════════════════════════════════════════════╝" + RESET);
   }
 
@@ -179,6 +181,10 @@ public class uiPrint {
 
   public static void displayRoomItems(ArrayList<Item> item) {
     System.out.println("You see the following items in the room: " + item);
+  }
+
+  public static void displayRoomContainer(Container container){
+    System.out.println("You see the following containers in the room: " + container);
   }
 
   public static void displaySearchContainer() throws InterruptedException {

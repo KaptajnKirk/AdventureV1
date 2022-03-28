@@ -113,7 +113,6 @@ public class Player {
   }
 
 
-  //TODO: make it so only weapons can be equipped
   public void equipWeapon(String item) {
     Item temp;
     boolean isItemInInv = false;
@@ -185,6 +184,7 @@ public class Player {
     }
     uiPrint.displayRoomName(getCurrentPosition().getName());
     uiPrint.displayRoomItems(getCurrentPosition().getItems());
+    uiPrint.displayRoomContainer(getCurrentPosition().getChest());
   }
 
   public void markAreaDiscovered() {
@@ -251,6 +251,5 @@ public class Player {
 
     }
   }
-
 }
 

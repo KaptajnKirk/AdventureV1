@@ -17,9 +17,8 @@ public class Map {
   private Container toolbox = new Container("toolbox");
   private Food nutritionBlock = new Food("nutrition block", 20);
   private Food rottenApple = new Food("rotten apple",-50);
-  private RangedWeapon laserGun = new RangedWeapon("lasergun", 50, 10);
+  private RangedWeapon laserGun = new RangedWeapon("lasergun", 50, 5);
   private MeleeWeapon sword = new MeleeWeapon("sword", 20);
-  private Item magazine = new Item("magazine");
 
   private Rooms currentRoom;
 
@@ -59,12 +58,11 @@ public class Map {
     //adding items to rooms
 
     room1.addItems(nutritionBlock);
-    room1.addItems(rottenApple);
-    room1.addItems(rottenApple);
-    room1.addItems(rottenApple);
-    room1.addItems(laserGun);
-    room1.addItems(sword);
-    room1.addItems(magazine);
+    room3.addItems(rottenApple);
+    room5.addItems(rottenApple);
+    toolbox.addItems(rottenApple);
+    toolbox.addItems(laserGun);
+    room9.addItems(sword);
      }
 
   public Rooms getRoom1() {

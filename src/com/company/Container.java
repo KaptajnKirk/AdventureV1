@@ -22,4 +22,7 @@ public class Container {
   public String getName() {
     return name;
   }
+  public String toString(){
+    return name;
+  }
 }
