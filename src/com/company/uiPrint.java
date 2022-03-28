@@ -38,7 +38,7 @@ public class uiPrint {
   //Displays ASCII art Titlecard
   public static void displayTitleCard() throws InterruptedException {
     newPage();
-    System.out.println("\u001B[34m███████╗███████╗ ██████╗ █████╗ ██████╗ ███████╗    ███████╗██████╗  ██████╗ ███╗   ███╗     █████╗ ██╗   ██╗██████╗  ██████╗ ██████╗  █████╗");
+    System.out.println(BLUE + "███████╗███████╗ ██████╗ █████╗ ██████╗ ███████╗    ███████╗██████╗  ██████╗ ███╗   ███╗     █████╗ ██╗   ██╗██████╗  ██████╗ ██████╗  █████╗");
     //Thread.sleep(500);
     System.out.println("██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝    ██╔════╝██╔══██╗██╔═══██╗████╗ ████║    ██╔══██╗██║   ██║██╔══██╗██╔═══██╗██╔══██╗██╔══██╗");
     //Thread.sleep(500);
@@ -48,7 +48,7 @@ public class uiPrint {
     //Thread.sleep(500);
     System.out.println("███████╗███████║╚██████╗██║  ██║██║     ███████╗    ██║     ██║  ██║╚██████╔╝██║ ╚═╝ ██║    ██║  ██║╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║");
     //Thread.sleep(500);
-    System.out.println("╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚══════╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝\u001B[0m");
+    System.out.println("╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚══════╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝" + RESET);
     //Thread.sleep(500);
     System.out.println();
     //Thread.sleep(500);
@@ -63,7 +63,7 @@ public class uiPrint {
   //Displays ASCII art endcard
   public static void displayEndCard() throws InterruptedException {
     newPage();
-    System.out.println("\u001B[32m████████╗██╗  ██╗ █████╗ ███╗   ██╗██╗  ██╗    ██╗   ██╗ ██████╗ ██╗   ██╗");
+    System.out.println(GREEN + "████████╗██╗  ██╗ █████╗ ███╗   ██╗██╗  ██╗    ██╗   ██╗ ██████╗ ██╗   ██╗");
     Thread.sleep(500);
     System.out.println("╚══██╔══╝██║  ██║██╔══██╗████╗  ██║██║ ██╔╝    ╚██╗ ██╔╝██╔═══██╗██║   ██║");
     Thread.sleep(500);
@@ -85,7 +85,7 @@ public class uiPrint {
     Thread.sleep(500);
     System.out.println("██║     ╚██████╔╝██║  ██║    ██║     ███████╗██║  ██║   ██║   ██║██║ ╚████║╚██████╔╝");
     Thread.sleep(500);
-    System.out.println("╚═╝      ╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝ \u001B[0m");
+    System.out.println("╚═╝      ╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝" + RESET);
     Thread.sleep(500);
     System.out.println();
     Thread.sleep(500);
@@ -215,29 +215,39 @@ public class uiPrint {
 
   public static void displayGameOver() throws InterruptedException {
     newPage();
-    System.out.println("   ;~)                  (~;_");
+    System.out.println("\t\t\t\t   ;~)                  (~;_");
     Thread.sleep(500);
-    System.out.println(" (   |                  |   )");
+    System.out.println("\t\t\t\t (   |                  |   )");
     Thread.sleep(500);
-    System.out.println("  ~', ',    ,''~'',   ,' ,'~");
+    System.out.println("\t\t\t\t  ~', ',    ,''~'',   ,' ,'~");
     Thread.sleep(500);
-    System.out.println("      ', ','       ',' ,'");
+    System.out.println("\t\t\t\t      ', ','       ',' ,'");
     Thread.sleep(500);
-    System.out.println("        ',: {'} {'} :,'");
+    System.out.println("\t\t\t\t        ',:"+BLACK+" {'} {'}"+RESET+" :,'");
     Thread.sleep(500);
-    System.out.println("          ;   /^\\   ;");
+    System.out.println("\t\t\t\t          ;   /^\\   ;");
     Thread.sleep(500);
-    System.out.println("           ~\\  ~  /~");
+    System.out.println("\t\t\t\t           ~\\  ~  /~");
     Thread.sleep(500);
-    System.out.println("         ,' ,~~~~~, ',");
+    System.out.println("\t\t\t\t         ,' ,"+BLACK+"~~~~~"+RESET+", ',");
     Thread.sleep(500);
-    System.out.println("       ,' ,' ;~~~; ', ',");
+    System.out.println("\t\t\t\t       ,' ,' ;~~~; ', ',");
     Thread.sleep(500);
-    System.out.println("     ,' ,'    '''    ', ',");
+    System.out.println("\t\t\t\t     ,' ,'    '''    ', ',");
     Thread.sleep(500);
-    System.out.println("   (~  ;               ;  ~)");
+    System.out.println("\t\t\t\t   (~  ;               ;  ~)");
     Thread.sleep(500);
-    System.out.println("    -;_)               (_;-");
+    System.out.println("\t\t\t\t    -;_)               (_;-\n");
+    System.out.println();
+    System.out.println(RED + " ██████   █████  ███    ███ ███████      ██████  ██    ██ ███████ ██████");
+    Thread.sleep(500);
+    System.out.println("██       ██   ██ ████  ████ ██          ██    ██ ██    ██ ██      ██   ██");
+    Thread.sleep(500);
+    System.out.println("██   ███ ███████ ██ ████ ██ █████       ██    ██ ██    ██ █████   ██████");
+    Thread.sleep(500);
+    System.out.println("██    ██ ██   ██ ██  ██  ██ ██          ██    ██  ██  ██  ██      ██   ██");
+    Thread.sleep(500);
+    System.out.println(" ██████  ██   ██ ██      ██ ███████      ██████    ████   ███████ ██   ██"+ RESET);
     Thread.sleep(2000);
   }
 
@@ -272,7 +282,7 @@ public class uiPrint {
     }
     System.out.println("╚════════════════════════╝");
     if (weapon != null){
-      System.out.println("WEAPON SLOT [1]: " + weapon);
+      System.out.println("WEAPON SLOT: " + weapon);
     }
   }
 
