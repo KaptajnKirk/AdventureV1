@@ -65,6 +65,7 @@ public class Adventure {
         case "eat" -> player1.eatItem(choice2);
         case "search" -> player1.searchContainer();
         case "equip" -> player1.equipWeapon(choice2);
+        case "attack" -> player1.attack();
         case "go" -> {
           switch (choice2) {
             case "north", "n" -> player1.goDirection(player1.getCurrentPosition().getNorth());
@@ -79,9 +80,12 @@ public class Adventure {
           run = false;
         }
         default -> uiPrint.invalidInput();
+
       }
       if (player1.getHealth() <= 0) {
+        uiPrint.displayGameOver();
         run = false;
+
       }
     }
     uiPrint.displayEndCard();

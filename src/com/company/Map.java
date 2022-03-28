@@ -19,6 +19,7 @@ public class Map {
   private Food rottenApple = new Food("rotten apple",-50);
   private RangedWeapon laserGun = new RangedWeapon("lasergun", 50, 10);
   private MeleeWeapon sword = new MeleeWeapon("sword", 20);
+  private Item magazine = new Item("magazine");
 
   private Rooms currentRoom;
 
@@ -63,6 +64,7 @@ public class Map {
     room1.addItems(rottenApple);
     room1.addItems(laserGun);
     room1.addItems(sword);
+    room1.addItems(magazine);
      }
 
   public Rooms getRoom1() {

@@ -11,10 +11,22 @@ public class RangedWeapon extends Weapon{
   }
 
   public void reload(int bullets){
-    this.magBulletsAmount += bullets;
-    if (magSize==magBulletsAmount){
-
-    }
+    magBulletsAmount += bullets;
   }
 
+  public int attack (){
+    return damage;
+  }
+
+  public void shoot(){
+    magBulletsAmount-=1;
+  }
+
+  public int getMagSize (){
+    return magSize;
+  }
+
+  public int getMagBulletsAmount() {
+    return magBulletsAmount;
+  }
 }

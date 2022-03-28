@@ -11,9 +11,7 @@ public class Player {
   private Rooms currentPosition;
   private final ArrayList<Item> inventory;
   private int health;
-  private Item equippedRanged;
-  private Item equippedMelee;
-
+  private Weapon equippedWeapon;
 
   public Player(Rooms room) {
     this.currentPosition = room;
@@ -33,8 +31,8 @@ public class Player {
     return health;
   }
 
-  public Item getEquippedWeapon(){
-    return equippedRanged;
+  public Item getEquippedWeapon() {
+    return equippedWeapon;
   }
 
   public void choiceSplitter() {
@@ -115,6 +113,7 @@ public class Player {
   }
 
 
+  //TODO: make it so only weapons can be equipped
   public void equipWeapon(String item) {
     Item temp;
     boolean isItemInInv = false;
@@ -126,16 +125,16 @@ public class Player {
         temp = inventory.get(x);
         if (item.equals(temp.getName())) {
           if (temp instanceof Weapon) {
-            if (equippedRanged != null) {
-              System.out.println("You have replaced your equipped " + equippedRanged + " with " + item);
-              inventory.add(equippedRanged);
+            if (equippedWeapon != null) {
+              System.out.println("You have replaced your equipped " + equippedWeapon + " with " + item);
+              inventory.add(equippedWeapon);
               inventory.remove(x);
-              equippedRanged = temp;
+              equippedWeapon = (Weapon)temp;
               x = inventory.size();
             } else {
               System.out.println("You have equipped " + item);
               inventory.remove(x);
-              equippedRanged = temp;
+              equippedWeapon = (Weapon) temp;
               x = inventory.size();
             }
           } else System.out.println("You can only equip weapons!");
@@ -231,5 +230,27 @@ public class Player {
       System.out.println("Your inventory is empty!");
     } else System.out.println("Inventory: " + inventory);
   }
+
+  public void attack () {
+    int damageDealt;
+    if (equippedWeapon != null) {
+      if (equippedWeapon.getMagBulletsAmount() == 0) {
+        System.out.println("You have no more ammo left!");
+      } else {
+        equippedWeapon.attack();
+        damageDealt = equippedWeapon.getDamage();
+        System.out.println("You dealt " + damageDealt + " damage");
+        if (equippedWeapon.getMagBulletsAmount() > 0) {
+          equippedWeapon.shoot();
+          System.out.println("You have " + equippedWeapon.getMagBulletsAmount() + " ammo left");
+        }
+      }
+    }
+      else {
+      System.out.println("You have no weapon equipped");
+
+    }
+  }
+
 }
 

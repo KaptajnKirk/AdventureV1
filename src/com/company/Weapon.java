@@ -1,6 +1,6 @@
 package com.company;
 
-public class Weapon extends Item{
+public abstract class Weapon extends Item{
 
   protected int damage;
 
@@ -8,4 +8,19 @@ public class Weapon extends Item{
     super(name);
     this.damage = damage;
   }
+
+  public int getDamage (){
+    return damage;
+  }
+
+  public abstract void reload (int bullets);
+
+  public abstract int attack ();
+
+  public abstract int getMagSize();
+
+  public abstract void shoot();
+
+  public abstract int getMagBulletsAmount();
+
 }

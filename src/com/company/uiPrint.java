@@ -207,6 +207,34 @@ public class uiPrint {
 
   }
 
+  public static void displayGameOver() throws InterruptedException {
+    newPage();
+    System.out.println("   ;~)                  (~;_");
+    Thread.sleep(500);
+    System.out.println(" (   |                  |   )");
+    Thread.sleep(500);
+    System.out.println("  ~', ',    ,''~'',   ,' ,'~");
+    Thread.sleep(500);
+    System.out.println("      ', ','       ',' ,'");
+    Thread.sleep(500);
+    System.out.println("        ',: {'} {'} :,'");
+    Thread.sleep(500);
+    System.out.println("          ;   /^\\   ;");
+    Thread.sleep(500);
+    System.out.println("           ~\\  ~  /~");
+    Thread.sleep(500);
+    System.out.println("         ,' ,~~~~~, ',");
+    Thread.sleep(500);
+    System.out.println("       ,' ,' ;~~~; ', ',");
+    Thread.sleep(500);
+    System.out.println("     ,' ,'    '''    ', ',");
+    Thread.sleep(500);
+    System.out.println("   (~  ;               ;  ~)");
+    Thread.sleep(500);
+    System.out.println("    -;_)               (_;-");
+    Thread.sleep(2000);
+  }
+
 
 
   public static void displayHealth(int health) {
