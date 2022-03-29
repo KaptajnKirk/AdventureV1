@@ -196,6 +196,10 @@ public class uiPrint {
     System.out.println("You see the following items in the room: " + item);
   }
 
+  public static void displayRoomEnemy(Enemy enemy){
+    System.out.println("The following enemies are in this room: " + enemy);
+  }
+
   public static void displayRoomContainer(Container container){
     System.out.println("You see the following containers in the room: " + container);
   }

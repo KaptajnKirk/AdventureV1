@@ -20,6 +20,7 @@ public class Map {
   private RangedWeapon laserGun = new RangedWeapon("lasergun", 50, 5);
   private MeleeWeapon sword = new MeleeWeapon("sword", 20);
   private Food poison = new Food("poison", -100);
+  private Enemy troll = new Enemy("Troll", "He is a troll", 200, sword, toolbox);
 
   private Rooms currentRoom;
 
@@ -64,6 +65,9 @@ public class Map {
     toolbox.addItems(laserGun);
     room9.addItems(sword);
     room1.addItems(poison);
+
+    room1.addEnemy(troll);
+    room2.addEnemy(troll);
      }
 
   //Get Starting room

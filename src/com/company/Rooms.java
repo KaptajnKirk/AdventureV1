@@ -13,6 +13,7 @@ public class Rooms {
   private String name;
   private ArrayList<Item> items = new ArrayList<>();
   private Container chest;
+  private Enemy enemy;
 
 
 
@@ -88,6 +89,14 @@ public class Rooms {
 
   public Container getChest(){
     return chest;
+  }
+
+  public Enemy getEnemy (){
+    return enemy;
+  }
+
+  public void addEnemy (Enemy enemy){
+    this.enemy = enemy;
   }
 
 }

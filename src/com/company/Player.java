@@ -182,6 +182,7 @@ public class Player {
     uiPrint.displayRoomName(getCurrentPosition().getName());
     uiPrint.displayRoomItems(getCurrentPosition().getItems());
     uiPrint.displayRoomContainer(getCurrentPosition().getChest());
+    uiPrint.displayRoomEnemy(getCurrentPosition().getEnemy());
   }
 
   public void markAreaDiscovered() {

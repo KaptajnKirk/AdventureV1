@@ -40,6 +40,7 @@ public class Adventure {
     uiPrint.displayWakeUp();
     uiPrint.displayRoomName(player1.getCurrentPosition().getName());
     uiPrint.displayRoomItems(player1.getCurrentPosition().getItems());
+    uiPrint.displayRoomEnemy(player1.getCurrentPosition().getEnemy());
   }
 
   public void displayNextMove() throws InterruptedException {
