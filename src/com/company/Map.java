@@ -56,8 +56,7 @@ public class Map {
 
     room4.addChest(toolbox);
 
-    //adding items to rooms
-
+    //adding items to rooms and containers in rooms
     room1.addItems(nutritionBlock);
     room3.addItems(rottenApple);
     room5.addItems(rottenApple);
@@ -67,6 +66,7 @@ public class Map {
     room1.addItems(poison);
      }
 
+  //Get Starting room
   public Rooms getRoom1() {
     return room1;
   }

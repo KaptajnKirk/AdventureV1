@@ -80,12 +80,10 @@ public class Adventure {
           run = false;
         }
         default -> uiPrint.invalidInput();
-
       }
       if (player1.getHealth() <= 0) {
         uiPrint.displayGameOver();
         run = false;
-
       }
     }
     uiPrint.displayEndCard();

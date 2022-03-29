@@ -5,9 +5,10 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Player {
-  String choice1;
-  String choice2;
-  Map map = new Map();
+  private boolean isItemInInv;
+  private String choice1;
+  private String choice2;
+  private Map map = new Map();
   private Rooms currentPosition;
   private final ArrayList<Item> inventory;
   private int health;
@@ -47,71 +48,64 @@ public class Player {
     }
   }
 
-  public void takeFromChest(String item) {
+  public void findItemDrop(String item){
+    isItemInInv = false;
     Item temp;
-    boolean isItemInInv = false;
+    for (int x = 0; x < inventory.size(); x++) {
+      temp = inventory.get(x);
+      if (item.equals(temp.getName())) {
+        isItemInInv = true;
+        inventory.remove(temp);
+        currentPosition.addItems(temp);
+        x = inventory.size();
+        System.out.println("You have dropped " + item + " on the floor!");
+      }
+    }
+    if (!isItemInInv) {
+      System.out.println("You don't have " + item + " in your inventory!");
+    }
+  }
+
+  public void findItemTake(ArrayList<Item> items, String item){
+    Item temp;
+    isItemInInv = false;
+    for (int x = 0; x < items.size(); x++) {
+      temp = items.get(x);
+      if (item.equals(temp.getName())) {
+        isItemInInv = true;
+        inventory.add(temp);
+        items.remove(x);
+        x = items.size();
+        System.out.println("You have added " + item + " to your inventory!");
+      }
+    }if (!isItemInInv) {
+      System.out.println("There is no " + item + " nearby!");
+    }
+  }
+
+  public void takeFromChest(String item) {
     if (item.equals(" ")) {
       System.out.println("Are you trying to pickup nothing?\nTry again!");
     } else {
-      for (int x = 0; x < currentPosition.getChest().getItems().size(); x++) {
-        temp = currentPosition.getChest().getItems().get(x);
-        if (item.equals(temp.getName())) {
-          isItemInInv = true;
-          inventory.add(temp);
-          currentPosition.getChest().getItems().remove(x);
-          x = getCurrentPosition().getChest().getItems().size();
-          System.out.println("You have added " + item + " to your inventory!");
-        }
-      }
-      if (!isItemInInv) {
-        System.out.println("There is no " + item + " nearby!");
-      }
+      findItemTake(currentPosition.getChest().getItems(),item);
     }
   }
 
   public void addToInventory(String item) {
-    Item temp;
-    boolean isItemInInv = false;
     if (item.equals(" ")) {
       System.out.println("Are you trying to pickup nothing?\nTry again!");
     } else {
-      for (int x = 0; x < currentPosition.getItems().size(); x++) {
-        temp = currentPosition.getItems().get(x);
-        if (item.equals(temp.getName())) {
-          isItemInInv = true;
-          inventory.add(temp);
-          currentPosition.getItems().remove(x);
-          x = currentPosition.getItems().size();
-          System.out.println("You have added " + item + " to your inventory!");
-        }
-      }if (!isItemInInv) {
-        System.out.println("There is no " + item + " nearby!");
-      }
+      findItemTake(currentPosition.getItems(),item);
     }
   }
 
   public void dropItem(String item) {
-    boolean isItemInInv = false;
-    Item temp;
     if (item.equals(" ")) {
       System.out.println("Are you trying to drop nothing?\nTry again!");
     } else {
-      for (int x = 0; x < inventory.size(); x++) {
-        temp = inventory.get(x);
-        if (item.equals(temp.getName())) {
-          isItemInInv = true;
-          inventory.remove(temp);
-          currentPosition.addItems(temp);
-          x = inventory.size();
-          System.out.println("You have dropped " + item + " on the floor!");
-        }
-      }
-      if (!isItemInInv) {
-        System.out.println("You don't have " + item + " in your inventory!");
-      }
+      findItemDrop(item);
     }
   }
-
 
   public void equipWeapon(String item) {
     Item temp;
@@ -149,18 +143,21 @@ public class Player {
       System.out.println("There are no containers to search in this room!");
     } else {
       uiPrint.displaySearchContainer();
-      System.out.println(currentPosition.getChest().getName());
-      System.out.println(currentPosition.getChest().getItems());
       boolean run2 = true;
       while (run2) {
+        System.out.println(currentPosition.getChest().getName());
+        System.out.println(currentPosition.getChest().getItems());
+        uiPrint.displayPlayerUI(health, equippedWeapon);
         uiPrint.nextMovePrompt();
         choiceSplitter();
         uiPrint.newPage();
         switch (choice1) {
           case "go" -> System.out.println("You have to close the container before moving on");
-          case "help" -> uiPrint.displayHelpMenu();
+          case "help" -> uiPrint.displayContainerHelpMenu();
           case "take" -> takeFromChest(choice2);
           case "inventory", "inv" -> displayInventory();
+          case "equip" -> equipWeapon(choice2);
+          case "eat" -> eatItem(choice2);
           case "close" -> {
             uiPrint.displayCloseContainer();
             run2 = false;
@@ -223,6 +220,7 @@ public class Player {
   public void lookRoom(){
     uiPrint.displayLookDescription(currentPosition.getDescription());
     uiPrint.displayRoomItems(currentPosition.getItems());
+    uiPrint.displayRoomContainer(currentPosition.getChest());
   }
 
   public void displayInventory() {

@@ -122,12 +122,25 @@ public class uiPrint {
     System.out.println("\tinventory\t\t- Open your inventory");
     System.out.println("\tsearch\t\t\t- Search nearby container");
     System.out.println("\tclose\t\t\t- Close nearby container");
-    System.out.println("\theath\t\t\t- Display current HP");
+    System.out.println("\thealth\t\t\t- Display current HP");
     System.out.println("\teat 'food'\t\t- Eat given food");
     System.out.println("\tequip 'weapon'\t- Equip given weapon");
     System.out.println("\tattack\t\t\t- Attack with equipped weapon");
     System.out.println(CYAN + "\n╚══════════════════════════════════════════════════════════════════════════════════════════════════════╝" + RESET);
   }
+
+  //display of the HELP menu when in container
+  public static void displayContainerHelpMenu() {
+    System.out.println(CYAN + "╔═══════════════════════════════HELP═════════════════════════════╗" + RESET);
+    System.out.println("\n\thelp\t\t\t- Get this help menu");
+    System.out.println("\ttake 'item'\t\t- Place a given item in your inventory ");
+    System.out.println("\teat 'food'\t\t- Eat given food");
+    System.out.println("\tinventory\t\t- Open your inventory");
+    System.out.println("\tequip 'weapon'\t- Equip given weapon");
+    System.out.println("\tclose\t\t\t- Close nearby container");
+    System.out.println(CYAN + "\n╚════════════════════════════════════════════════════════════════╝" + RESET);
+  }
+
 
   //Press Enter prompt for start
   public static void enterPromt()throws InterruptedException{
@@ -158,7 +171,7 @@ public class uiPrint {
 
   //outprint for invalid input command
   public static void invalidInput() {
-    System.out.println("Invalid input!");
+    System.out.println("Invalid input! Type 'help' for available commands!");
   }
 
   //For when direction is null
