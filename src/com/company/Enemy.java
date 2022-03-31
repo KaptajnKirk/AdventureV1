@@ -30,7 +30,7 @@ public class Enemy {
     this.health -= damage;
   }
 
-  public int health() {
+  public int getHealth() {
     return health;
   }
 
@@ -46,9 +46,14 @@ public class Enemy {
     return equippedWeapon;
   }
 
+  public Container getCorpse (){
+    return corpse;
+  }
+
   @Override
   public String toString() {
     return name;
   }
+
 
 }

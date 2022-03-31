@@ -185,11 +185,11 @@ public class uiPrint {
 
   //display the room description when the user enters a specif room for the first time
   public static void displayRoomDescription(String description) throws InterruptedException {
-    printer("You walk into" + description);
+    printer("You walk into" + description + "\n");
   }
   //look command to display the room description to the user
   public static void displayLookDescription(String description) {
-    System.out.println("You are in" + description);
+    System.out.println("You are in" + description + "\n");
   }
 
   public static void displayRoomItems(ArrayList<Item> item) {
@@ -217,7 +217,7 @@ public class uiPrint {
   }
 
   public static void displayCloseContainer(String name) throws InterruptedException {
-    printer(" is now closed.");
+    printer(name + " is now closed.");
   }
 
   public static void displayEat(String name, int health) {

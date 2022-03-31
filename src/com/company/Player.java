@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Player {
@@ -180,10 +181,15 @@ public class Player {
       markAreaDiscovered();
       uiPrint.displayRoomDescription(getCurrentPosition().getDescription());
     }
-    uiPrint.displayRoomName(getCurrentPosition().getName());
-    uiPrint.displayRoomItems(getCurrentPosition().getItems());
-    uiPrint.displayRoomContainer(getCurrentPosition().getChest());
-    uiPrint.displayRoomEnemy(getCurrentPosition().getEnemy());
+    if (currentPosition.getItems().size()>0){
+      uiPrint.displayRoomItems(getCurrentPosition().getItems());
+    }
+    if (currentPosition.getChest()!=null){
+      uiPrint.displayRoomContainer(getCurrentPosition().getChest());
+    }
+    if (currentPosition.getEnemy()!=null){
+      uiPrint.displayRoomEnemy(getCurrentPosition().getEnemy());
+    }
   }
 
   public void markAreaDiscovered() {
@@ -247,23 +253,52 @@ public class Player {
 
   public void attack () {
     if (equippedWeapon != null) {
-      if (equippedWeapon.getMagBulletsAmount() == 0) {
+      if (currentPosition.getEnemy()==null){
+        System.out.println("There is no enemy in the room");
+      }
+       else if (equippedWeapon.getMagBulletsAmount() == 0) {
         System.out.println("You have no more ammo left!");
       } else {
-        weaponAttack();
-        if(currentPosition.getEnemy().health() > 0){
+          weaponAttack();
+          enemydeath();
+        }
+      if (currentPosition.getEnemy()!=null){
+        if(currentPosition.getEnemy().getHealth() > 0){
           enemyAttackBack();
+          }
         }
         if (equippedWeapon.getMagBulletsAmount() > 0) {
           equippedWeapon.shoot();
           System.out.println("You have " + equippedWeapon.getMagBulletsAmount() + " ammo left");
         }
       }
-    }
+
       else {
       System.out.println("You have no weapon equipped");
 
     }
   }
+
+  public void enemydeath(){
+    if (currentPosition.getEnemy().getHealth() <=0){
+      System.out.println("You vanquished your enemy. his lifeless corpse falls to the ground...");
+      currentPosition.addChest(currentPosition.getEnemy().getCorpse());
+      currentPosition.addItems(currentPosition.getEnemy().getEquippedWeapon());
+      currentPosition.removeEnemy();
+    }
+  }
+
+  /*public void enemyAttack(){
+    Random r = new Random(1,6);
+
+    if (r==1 || r==2 || r==3) {
+      System.out.println("You dodged his attack");
+    }
+    
+    if (r=4 || r=5 || r=6) {
+      System.out.println("You got hit. You lost: ");
+      getCurrentPosition().getEnemy().getDamage();
+    }
+  }*/
 }
 

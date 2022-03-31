@@ -20,7 +20,9 @@ public class Map {
   private RangedWeapon laserGun = new RangedWeapon("lasergun", 50, 5);
   private MeleeWeapon sword = new MeleeWeapon("sword", 20);
   private Food poison = new Food("poison", -100);
-  private Enemy troll = new Enemy("Troll", "He is a troll", 200, sword, toolbox);
+  private Container infected1Corpse = new Container("corpse");
+  private Enemy infected1 = new Enemy("infected crewmember", "former crewmember, who died in the crash. His lifeless corpse is now controlled by what seems to be a native fungi species to planet 4546B", 200, sword, infected1Corpse);
+
 
   private Rooms currentRoom;
 
@@ -65,9 +67,10 @@ public class Map {
     toolbox.addItems(laserGun);
     room9.addItems(sword);
     room1.addItems(poison);
+    infected1Corpse.addItems(sword);
 
-    room1.addEnemy(troll);
-    room2.addEnemy(troll);
+    room1.addEnemy(infected1);
+    room2.addEnemy(infected1);
      }
 
   //Get Starting room
