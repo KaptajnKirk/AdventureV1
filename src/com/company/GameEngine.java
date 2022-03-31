@@ -84,7 +84,7 @@ public class GameEngine {
       }
 
       if (map.getRoom5().getEnemy()==null){
-        System.out.println("Congratulations, you are not completely stupid");
+        uiPrint.winGame();
         run = false;
       }
       if (player1.getHealth() <= 0) {

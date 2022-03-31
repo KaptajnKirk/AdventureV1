@@ -271,6 +271,23 @@ public class uiPrint {
     Thread.sleep(2000);
   }
 
+  public static void winGame () throws InterruptedException {
+    newPage();
+    System.out.println("Congratulations! You killed the reaper leviathan, and can now escape the Aurora.\nNow the real challenge begins in the oceans of Planet 4546B... ");
+    Thread.sleep(3500);
+    newPage();
+    System.out.println( GREEN +"██    ██  ██████  ██    ██     ██     ██  ██████  ███    ██ ██ ");
+    Thread.sleep(500);
+    System.out.println( BLUE +" ██  ██  ██    ██ ██    ██     ██     ██ ██    ██ ████   ██ ██ ");
+    Thread.sleep(500);
+    System.out.println( YELLOW +"  ████   ██    ██ ██    ██     ██  █  ██ ██    ██ ██ ██  ██ ██ ");
+    Thread.sleep(500);
+    System.out.println( RED +"   ██    ██    ██ ██    ██     ██ ███ ██ ██    ██ ██  ██ ██    ");
+    Thread.sleep(500);
+    System.out.println( CYAN +"   ██     ██████   ██████       ███ ███   ██████  ██   ████ ██ ");
+    Thread.sleep(2000);
+  }
+
 
 
   public static void displayHealth(int health) {
