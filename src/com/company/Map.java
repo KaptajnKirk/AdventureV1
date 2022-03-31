@@ -14,16 +14,38 @@ public class Map {
   private Rooms room7 = new Rooms("Sleeping Quarters", " the sleeping quarters. This is just one room of the many that makes up the crew quarters.\nSmall fires are scattered across the room, and a medium sizes hole has been made in the southern wall,\nmaking the neighbour room visible. As Alterra doesnt allow many personal items to bring along on excavation voyages,\nthe only things floating around in the ankle high water are small tools, hygiene items, papers, etc.");
   private Rooms room8 = new Rooms("Science Lab", " a small room, with a single, one-person submarine suspended from the ceiling in the middle of the room.\nYou have never visited the lab prior, since it has always been off limits. Glass shards from vials fills the floor,\nand microscopes and other research tools, are scattered amongst the flipped worktables and whiteboards.\nYou can see equations etched onto the wall-embedded worktables.\nThe ceiling lights are weirdly still fully functioning, covering the lab in a bright defused, white light.");
   private Rooms room9 = new Rooms("Submarine Bay", " a massive hall, with Alterra's signature expedition submarine, 'The Cyclops' taking up most of the hall.\nThe submarine has fallen out of its ceiling mount, and now partly blocks the entrance pool below it.\nOn the bottom of the entrance pool, there is a gate that opens up, as an exit for submarines.\nAround the room, there are one-man submarines socketed into the walls, where they used to charge.\nSome of them fell out during the crash, and now partly occupy the bay floor.\nYou should be able to take a one-man submarine through the gate, provided you can get it open.");
-  private Container toolbox = new Container("toolbox");
-  private Food nutritionBlock = new Food("nutrition block", 20);
-  private Food rottenApple = new Food("rotten apple",-50);
-  private RangedWeapon laserGun = new RangedWeapon("lasergun", 50, 5);
-  private MeleeWeapon sword = new MeleeWeapon("sword", 20);
-  private Food poison = new Food("poison", -100);
-  private Item mag = new Item("mag");
-  private Container infected1Corpse = new Container("corpse");
-  private Enemy infected1 = new Enemy("infected crewmember", "former crewmember, who died in the crash. His lifeless corpse is now controlled by what seems to be a native fungi species to planet 4546B", 200, sword, infected1Corpse);
 
+  private Container toolbox = new Container("toolbox");
+  private Container crate = new Container("crate");
+  private Container duffelbag = new Container("duffelbag");
+  private Container infected1Corpse = new Container("Corpse");
+  private Container infected2Corpse = new Container("Corpse");
+  private Container infected3Corpse = new Container("Corpse");
+  private Container infected4Corpse = new Container("Corpse");
+  private Container leviCorpse = new Container("Corpse");
+
+  private Food nutritionBlock = new Food("nutrition block", 40);
+  private Food oldProteinbar = new Food("old proteinbar",-30);
+  private Food candybar = new Food("candy bar", 10);
+  private Food vial = new Food("Vial with red liqued",-70);
+  private Food vial2 = new Food("Vial with blue liqued", 70);
+
+  private RangedWeapon nailgun = new RangedWeapon("nailgun", 25, 10);
+  private RangedWeapon lasercutter = new RangedWeapon("lasercutter", 40, 5);
+
+  private MeleeWeapon pocketKnife = new MeleeWeapon("pocketknife", 10);
+  private MeleeWeapon wrench = new MeleeWeapon("wrench", 20);
+  private MeleeWeapon metalBar = new MeleeWeapon("metal bar", 20);
+  private MeleeWeapon mandibles = new MeleeWeapon("Mandibles", 40);
+
+
+  private Item mag = new Item("magazine");
+
+  private Enemy infected1 = new Enemy("Infected crewmember", "A former crewmember, who died in the crash. His lifeless corpse is now controlled by what seems to be a fungi species native to planet 4546B", 70, pocketKnife, infected1Corpse);
+  private Enemy infected2 = new Enemy("Infected crewmember", "A former crewmember, who died in the crash. His lifeless corpse is now controlled by what seems to be a fungi species native to planet 4546B", 70, wrench, infected2Corpse);
+  private Enemy reaperLeviathan = new Enemy("Reaper Leviathan", "A massive snakelike creature of the Leviathan family, roughly 20 meters in length. Equipped with razor-sharp teetch, and spiked mandibles, this creature is not to be taken lightly", 300, mandibles, leviCorpse);
+  private Enemy infected3 = new Enemy("Infected crewmember", "A former crewmember, who died in the crash. His lifeless corpse is now controlled by what seems to be a fungi species native to planet 4546B", 70, pocketKnife, infected3Corpse);
+  private Enemy infected4 = new Enemy("Infected crewmember", "A former crewmember, who died in the crash. His lifeless corpse is now controlled by what seems to be a fungi species native to planet 4546B", 70, metalBar, infected4Corpse);
 
   private Rooms currentRoom;
 
@@ -58,22 +80,57 @@ public class Map {
     room9.setWest(room8);
     room9.setNorth(room6);
 
-    room4.addChest(toolbox);
-
     //adding items to rooms and containers in rooms
     room1.addItems(nutritionBlock);
-    room1.addItems(mag);
-    room1.addItems(laserGun);
-    room3.addItems(rottenApple);
-    room5.addItems(rottenApple);
-    toolbox.addItems(rottenApple);
-    toolbox.addItems(laserGun);
-    room9.addItems(sword);
-    room1.addItems(poison);
-    infected1Corpse.addItems(sword);
+    room1.addItems(oldProteinbar);
+    room1.addItems(pocketKnife);
 
-    room1.addEnemy(infected1);
+    room2.addItems(oldProteinbar);
+    room2.addItems(oldProteinbar);
+    room2.addItems(candybar);
+    room2.addItems(candybar);
+    room2.addItems(nutritionBlock);
     room2.addEnemy(infected1);
+    infected1Corpse.addItems(mag);
+
+    room3.addChest(crate);
+    crate.addItems(lasercutter);
+
+    room4.addItems(wrench);
+    room4.addChest(toolbox);
+    toolbox.addItems(nailgun);
+    toolbox.addItems(mag);
+
+    room5.addEnemy(reaperLeviathan);
+
+    room6.addItems(candybar);
+    room6.addItems(candybar);
+    room6.addItems(wrench);
+    room6.addEnemy(infected3);
+    infected3Corpse.addItems(candybar);
+    infected3Corpse.addItems(mag);
+
+    room7.addChest(duffelbag);
+    room7.addEnemy(infected4);
+    infected4Corpse.addItems(mag);
+    duffelbag.addItems(candybar);
+    duffelbag.addItems(nutritionBlock);
+    duffelbag.addItems(pocketKnife);
+    room7.addItems(oldProteinbar);
+    room7.addItems(oldProteinbar);
+
+    room8.addItems(vial);
+    room8.addItems(vial2);
+
+    room9.addEnemy(infected2);
+    room9.addChest(infected2Corpse);
+    infected2Corpse.addItems(mag);
+    room9.addItems(wrench);
+    room9.addItems(oldProteinbar);
+
+
+
+
      }
 
   //Get Starting room

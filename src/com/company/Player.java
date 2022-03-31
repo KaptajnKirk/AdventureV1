@@ -195,19 +195,7 @@ public class Player {
       setCurrentPosition(direction);
       map.setCurrentRoom(direction);
     }
-    if (!currentPosition.getDiscovered()) {
-      markAreaDiscovered();
-      uiPrint.displayRoomDescription(getCurrentPosition().getDescription());
-    }
-    if (currentPosition.getItems().size()>0){
-      uiPrint.displayRoomItems(getCurrentPosition().getItems());
-    }
-    if (currentPosition.getChest()!=null){
-      uiPrint.displayRoomContainer(getCurrentPosition().getChest());
-    }
-    if (currentPosition.getEnemy()!=null){
-      uiPrint.displayRoomEnemy(getCurrentPosition().getEnemy());
-    }
+   lookRoom();
   }
 
   public void markAreaDiscovered() {
@@ -245,12 +233,17 @@ public class Player {
 
   public void lookRoom() throws InterruptedException {
     uiPrint.displayLookDescription(currentPosition.getDescription());
-    uiPrint.displayRoomItems(currentPosition.getItems());
-    uiPrint.displayRoomContainer(currentPosition.getChest());
-    uiPrint.displayRoomEnemy(currentPosition.getEnemy());
-    uiPrint.displayRoomEnemyDescription(currentPosition.getEnemy().getDescription());
+    if (currentPosition.getItems().size()>0) {
+      uiPrint.displayRoomItems(currentPosition.getItems());
+    }
+    if (currentPosition.getChest()!=null) {
+      uiPrint.displayRoomContainer(currentPosition.getChest());
+    }
+    if (currentPosition.getEnemy() != null) {
+      uiPrint.displayRoomEnemy(currentPosition.getEnemy());
+      uiPrint.displayRoomEnemyDescription(currentPosition.getEnemy().getDescription());
+    }
   }
-
   public void displayInventory() {
     if (inventory.size() == 0) {
       System.out.println("Your inventory is empty!");
