@@ -26,16 +26,16 @@ public class Map {
 
   private Food nutritionBlock = new Food("nutrition block", 40);
   private Food oldProteinbar = new Food("old proteinbar",-30);
-  private Food candybar = new Food("candy bar", 10);
-  private Food vial = new Food("Vial with red liqued",-70);
-  private Food vial2 = new Food("Vial with blue liqued", 70);
+  private Food candybar = new Food("candybar", 10);
+  private Food vial = new Food("vial with red liquid",-70);
+  private Food vial2 = new Food("vial with blue liquid", 70);
 
   private RangedWeapon nailgun = new RangedWeapon("nailgun", 25, 10);
-  private RangedWeapon lasercutter = new RangedWeapon("lasercutter", 40, 5);
+  private RangedWeapon lasercutter = new RangedWeapon("lasercutter", 50, 5);
 
   private MeleeWeapon pocketKnife = new MeleeWeapon("pocketknife", 10);
   private MeleeWeapon wrench = new MeleeWeapon("wrench", 20);
-  private MeleeWeapon metalBar = new MeleeWeapon("metal bar", 20);
+  private MeleeWeapon metalBar = new MeleeWeapon("metal bar", 25);
   private MeleeWeapon mandibles = new MeleeWeapon("Mandibles", 40);
 
 
@@ -123,7 +123,6 @@ public class Map {
     room8.addItems(vial2);
 
     room9.addEnemy(infected2);
-    room9.addChest(infected2Corpse);
     infected2Corpse.addItems(mag);
     room9.addItems(wrench);
     room9.addItems(oldProteinbar);
@@ -136,6 +135,10 @@ public class Map {
   //Get Starting room
   public Rooms getRoom1() {
     return room1;
+  }
+
+  public Rooms getRoom5(){
+    return room5;
   }
 
   public void setCurrentRoom(Rooms currentRoom){

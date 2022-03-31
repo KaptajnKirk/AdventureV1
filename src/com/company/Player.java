@@ -15,8 +15,8 @@ public class Player {
   private int health;
   private Weapon equippedWeapon;
 
-  public Player(Rooms room) {
-    this.currentPosition = room;
+  public Player(Rooms starterRoom) {
+    this.currentPosition = starterRoom;
     this.inventory = new ArrayList<>();
     this.health = 100;
   }
@@ -244,6 +244,7 @@ public class Player {
       uiPrint.displayRoomEnemyDescription(currentPosition.getEnemy().getDescription());
     }
   }
+
   public void displayInventory() {
     if (inventory.size() == 0) {
       System.out.println("Your inventory is empty!");

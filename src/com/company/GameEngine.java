@@ -3,7 +3,7 @@ package com.company;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Adventure {
+public class GameEngine {
   //call map, scanner, music & player
   Map map = new Map();
   Player player1 = new Player(map.getRoom1());
@@ -81,6 +81,11 @@ public class Adventure {
           run = false;
         }
         default -> uiPrint.invalidInput();
+      }
+
+      if (map.getRoom5().getEnemy()==null){
+        System.out.println("Congratulations, you are not completely stupid");
+        run = false;
       }
       if (player1.getHealth() <= 0) {
         uiPrint.displayGameOver();
