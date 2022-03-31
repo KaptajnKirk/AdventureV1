@@ -60,13 +60,13 @@ public class GameEngine {
         case "inventory", "inv" -> player1.displayInventory();
         case "drop" -> player1.dropItem(choice2);
         case "help" -> uiPrint.displayHelpMenu();
-        case "look" -> player1.lookRoom();
+        case "look" -> player1.lookRoomWithName();
         case "health" -> uiPrint.displayHealth(player1.getHealth());
         case "eat" -> player1.eatItem(choice2);
-        case "search" -> player1.searchContainer();
+        case "search" -> player1.searchContainer(choice2);
         case "equip" -> player1.equipWeapon(choice2);
         case "attack" -> player1.attack();
-        case "reload" -> player1.reload("mag");
+        case "reload" -> player1.reload();
         case "go" -> {
           switch (choice2) {
             case "north", "n" -> player1.goDirection(player1.getCurrentPosition().getNorth());

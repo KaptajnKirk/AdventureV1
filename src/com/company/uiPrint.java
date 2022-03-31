@@ -295,7 +295,7 @@ public class uiPrint {
     switch (health/20) {
       case (0) -> System.out.print(". Your health is critical. Avoid combat at all costs!");
       case (1) -> System.out.print(". Your health is low. You should not seek combat");
-      case (2) -> System.out.print(". Your health is okay. You are lighlt injured");
+      case (2) -> System.out.print(". Your health is okay. You are lightly injured");
       case (3) -> System.out.print(". Your health is good. You can engage in combat");
       case (4) -> System.out.print(". Your health is very good. You can safely engage in combat");
       case (5) -> System.out.print(". You are full health! Seek out your enemies!");
@@ -319,7 +319,10 @@ public class uiPrint {
     }
     System.out.println("╚════════════════════════╝");
     if (weapon != null){
-      System.out.println("WEAPON SLOT: " + weapon);
+      System.out.print("WEAPON SLOT: " + weapon);
+      if(weapon instanceof RangedWeapon){
+        System.out.print(" [" + ((RangedWeapon) weapon).getMagBulletsAmount() + "]");
+      }
     }
   }
 

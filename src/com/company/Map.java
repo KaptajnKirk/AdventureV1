@@ -17,18 +17,18 @@ public class Map {
 
   private Container toolbox = new Container("toolbox");
   private Container crate = new Container("crate");
-  private Container duffelbag = new Container("duffelbag");
-  private Container infected1Corpse = new Container("Corpse");
-  private Container infected2Corpse = new Container("Corpse");
-  private Container infected3Corpse = new Container("Corpse");
-  private Container infected4Corpse = new Container("Corpse");
-  private Container leviCorpse = new Container("Corpse");
+  private Container duffelBag = new Container("duffel bag");
+  private Container infected1Corpse = new Container("corpse");
+  private Container infected2Corpse = new Container("corpse");
+  private Container infected3Corpse = new Container("corpse");
+  private Container infected4Corpse = new Container("corpse");
+  private Container leviCorpse = new Container("corpse");
 
   private Food nutritionBlock = new Food("nutrition block", 40);
   private Food oldProteinbar = new Food("old proteinbar",-30);
   private Food candybar = new Food("candybar", 10);
-  private Food vial = new Food("vial with red liquid",-70);
-  private Food vial2 = new Food("vial with blue liquid", 70);
+  private Food potionRed = new Food("red potion",-70);
+  private Food potionBlue = new Food("blue potion", 70);
 
   private RangedWeapon nailgun = new RangedWeapon("nailgun", 25, 10);
   private RangedWeapon lasercutter = new RangedWeapon("lasercutter", 50, 5);
@@ -43,7 +43,7 @@ public class Map {
 
   private Enemy infected1 = new Enemy("Infected crewmember", "A former crewmember, who died in the crash. His lifeless corpse is now controlled by what seems to be a fungi species native to planet 4546B", 70, pocketKnife, infected1Corpse);
   private Enemy infected2 = new Enemy("Infected crewmember", "A former crewmember, who died in the crash. His lifeless corpse is now controlled by what seems to be a fungi species native to planet 4546B", 70, wrench, infected2Corpse);
-  private Enemy reaperLeviathan = new Enemy("Reaper Leviathan", "A massive snakelike creature of the Leviathan family, roughly 20 meters in length. Equipped with razor-sharp teetch, and spiked mandibles, this creature is not to be taken lightly", 300, mandibles, leviCorpse);
+  private Enemy reaperLeviathan = new Enemy("Reaper Leviathan", "A massive snakelike creature of the Leviathan family, roughly 20 meters in length.\nEquipped with razor-sharp teetch, and spiked mandibles, this creature is not to be taken lightly", 300, mandibles, leviCorpse);
   private Enemy infected3 = new Enemy("Infected crewmember", "A former crewmember, who died in the crash. His lifeless corpse is now controlled by what seems to be a fungi species native to planet 4546B", 70, pocketKnife, infected3Corpse);
   private Enemy infected4 = new Enemy("Infected crewmember", "A former crewmember, who died in the crash. His lifeless corpse is now controlled by what seems to be a fungi species native to planet 4546B", 70, metalBar, infected4Corpse);
 
@@ -110,26 +110,22 @@ public class Map {
     infected3Corpse.addItems(candybar);
     infected3Corpse.addItems(mag);
 
-    room7.addChest(duffelbag);
+    room7.addChest(duffelBag);
     room7.addEnemy(infected4);
     infected4Corpse.addItems(mag);
-    duffelbag.addItems(candybar);
-    duffelbag.addItems(nutritionBlock);
-    duffelbag.addItems(pocketKnife);
+    duffelBag.addItems(candybar);
+    duffelBag.addItems(nutritionBlock);
+    duffelBag.addItems(pocketKnife);
     room7.addItems(oldProteinbar);
     room7.addItems(oldProteinbar);
 
-    room8.addItems(vial);
-    room8.addItems(vial2);
+    room8.addItems(potionRed);
+    room8.addItems(potionBlue);
 
     room9.addEnemy(infected2);
     infected2Corpse.addItems(mag);
     room9.addItems(wrench);
     room9.addItems(oldProteinbar);
-
-
-
-
      }
 
   //Get Starting room

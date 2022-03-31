@@ -2,7 +2,6 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Player {
@@ -49,12 +48,12 @@ public class Player {
     }
   }
 
-  public void reload(String item){
+  public void reload(){
     isItemInInv = false;
     Item temp;
     for (int x = 0; x < inventory.size(); x++) {
       temp = inventory.get(x);
-      if (item.equals(temp.getName())) {
+      if ("magazine".equals(temp.getName())) {
         isItemInInv = true;
         equippedWeapon.reload();
         inventory.remove(temp);
@@ -157,34 +156,42 @@ public class Player {
     }
   }
 
-  public void searchContainer() throws InterruptedException {
-    String name = currentPosition.getChest().getName();
-    if (currentPosition.getChest() == null) {
-      System.out.println("There are no containers to search in this room!");
-    } else {
-      uiPrint.displaySearchContainer(name);
-      boolean run2 = true;
-      while (run2) {
-        System.out.println(currentPosition.getChest().getName());
-        System.out.println(currentPosition.getChest().getItems());
-        uiPrint.displayPlayerUI(health, equippedWeapon);
-        uiPrint.nextMovePrompt();
-        choiceSplitter();
-        uiPrint.newPage();
-        switch (choice1) {
-          case "go" -> System.out.println("You have to close the container before moving on");
-          case "help" -> uiPrint.displayContainerHelpMenu();
-          case "take" -> takeFromChest(choice2);
-          case "inventory", "inv" -> displayInventory();
-          case "equip" -> equipWeapon(choice2);
-          case "eat" -> eatItem(choice2);
-          case "close" -> {
-            uiPrint.displayCloseContainer(name);
-            run2 = false;
+  public void searchContainer(String container) throws InterruptedException {
+    if (currentPosition.getChest() != null) {
+      if (container.equals(currentPosition.getChest().getName())) {
+        String name = currentPosition.getChest().getName();
+        if (currentPosition.getChest() == null) {
+          System.out.println("There are no containers to search in this room!");
+        } else {
+          uiPrint.displaySearchContainer(name);
+          boolean run2 = true;
+          while (run2) {
+            System.out.println(currentPosition.getChest().getName());
+            System.out.println(currentPosition.getChest().getItems());
+            uiPrint.displayPlayerUI(health, equippedWeapon);
+            uiPrint.nextMovePrompt();
+            choiceSplitter();
+            uiPrint.newPage();
+            switch (choice1) {
+              case "go" -> System.out.println("You have to close the container before moving on");
+              case "help" -> uiPrint.displayContainerHelpMenu();
+              case "take" -> takeFromChest(choice2);
+              case "inventory", "inv" -> displayInventory();
+              case "equip" -> equipWeapon(choice2);
+              case "eat" -> eatItem(choice2);
+              case "close" -> {
+                uiPrint.displayCloseContainer(name);
+                run2 = false;
+              }
+              default -> uiPrint.invalidInput();
+            }
           }
-          default -> uiPrint.invalidInput();
         }
-      }
+      } else {
+        System.out.println("There is no " + container + " in the room!");
+       }
+      }else {
+        System.out.println("There is nothing to search in this room!");
     }
   }
 
@@ -194,8 +201,12 @@ public class Player {
     } else {
       setCurrentPosition(direction);
       map.setCurrentRoom(direction);
+    }if (!currentPosition.discovered){
+      lookRoomWithName();
+      markAreaDiscovered();
+    } else{
+      lookRoom();
     }
-   lookRoom();
   }
 
   public void markAreaDiscovered() {
@@ -231,8 +242,13 @@ public class Player {
     }
   }
 
-  public void lookRoom() throws InterruptedException {
+  public void lookRoomWithName() throws InterruptedException {
     uiPrint.displayLookDescription(currentPosition.getDescription());
+    lookRoom();
+  }
+
+  public void lookRoom() throws InterruptedException {
+    uiPrint.displayRoomName(currentPosition.getName());
     if (currentPosition.getItems().size()>0) {
       uiPrint.displayRoomItems(currentPosition.getItems());
     }
@@ -274,7 +290,7 @@ public class Player {
         System.out.println("You have no more ammo left! Please reload your weapon!");
       } else {
           weaponAttack();
-          enemydeath();
+          enemyDeath();
         }
       if (currentPosition.getEnemy()!=null){
         if(currentPosition.getEnemy().getHealth() > 0){
@@ -293,7 +309,7 @@ public class Player {
     }
   }
 
-  public void enemydeath(){
+  public void enemyDeath(){
     if (currentPosition.getEnemy().getHealth() <=0){
       System.out.println("You vanquished your enemy. his lifeless corpse falls to the ground...");
       currentPosition.addChest(currentPosition.getEnemy().getCorpse());
@@ -301,18 +317,5 @@ public class Player {
       currentPosition.removeEnemy();
     }
   }
-
-  /*public void enemyAttack(){
-    Random r = new Random(1,6);
-
-    if (r==1 || r==2 || r==3) {
-      System.out.println("You dodged his attack");
-    }
-    
-    if (r=4 || r=5 || r=6) {
-      System.out.println("You got hit. You lost: ");
-      getCurrentPosition().getEnemy().getDamage();
-    }
-  }*/
 }
 
