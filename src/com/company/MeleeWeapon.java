@@ -15,7 +15,7 @@ public class MeleeWeapon extends Weapon{
     return 0;
   }
 
-  public void reload (int bullets){
+  public void reload (){
     System.out.println("How would you like to reload a melee weapon?!?!?!");
   }
 

@@ -49,6 +49,24 @@ public class Player {
     }
   }
 
+  public void reload(String item){
+    isItemInInv = false;
+    Item temp;
+    for (int x = 0; x < inventory.size(); x++) {
+      temp = inventory.get(x);
+      if (item.equals(temp.getName())) {
+        isItemInInv = true;
+        equippedWeapon.reload();
+        inventory.remove(temp);
+        x = inventory.size();
+        System.out.println("You have reloaded your weapon");
+      }
+    }
+    if (!isItemInInv) {
+      System.out.println("You do not have a mag in your inventory");
+    }
+  }
+
   public void findItemDrop(String item){
     isItemInInv = false;
     Item temp;
@@ -225,10 +243,12 @@ public class Player {
     }
   }
 
-  public void lookRoom(){
+  public void lookRoom() throws InterruptedException {
     uiPrint.displayLookDescription(currentPosition.getDescription());
     uiPrint.displayRoomItems(currentPosition.getItems());
     uiPrint.displayRoomContainer(currentPosition.getChest());
+    uiPrint.displayRoomEnemy(currentPosition.getEnemy());
+    uiPrint.displayRoomEnemyDescription(currentPosition.getEnemy().getDescription());
   }
 
   public void displayInventory() {
@@ -257,7 +277,7 @@ public class Player {
         System.out.println("There is no enemy in the room");
       }
        else if (equippedWeapon.getMagBulletsAmount() == 0) {
-        System.out.println("You have no more ammo left!");
+        System.out.println("You have no more ammo left! Please reload your weapon!");
       } else {
           weaponAttack();
           enemydeath();

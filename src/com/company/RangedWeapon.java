@@ -10,8 +10,8 @@ public class RangedWeapon extends Weapon{
     this.magBulletsAmount = magSize; //When creating gun it spawns with full mag
   }
 
-  public void reload(int bullets){
-    magBulletsAmount += bullets;
+  public void reload(){
+    magBulletsAmount=magSize;
   }
 
   public int attack (){

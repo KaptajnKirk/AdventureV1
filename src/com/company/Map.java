@@ -20,6 +20,7 @@ public class Map {
   private RangedWeapon laserGun = new RangedWeapon("lasergun", 50, 5);
   private MeleeWeapon sword = new MeleeWeapon("sword", 20);
   private Food poison = new Food("poison", -100);
+  private Item mag = new Item("mag");
   private Container infected1Corpse = new Container("corpse");
   private Enemy infected1 = new Enemy("infected crewmember", "former crewmember, who died in the crash. His lifeless corpse is now controlled by what seems to be a native fungi species to planet 4546B", 200, sword, infected1Corpse);
 
@@ -61,6 +62,8 @@ public class Map {
 
     //adding items to rooms and containers in rooms
     room1.addItems(nutritionBlock);
+    room1.addItems(mag);
+    room1.addItems(laserGun);
     room3.addItems(rottenApple);
     room5.addItems(rottenApple);
     toolbox.addItems(rottenApple);

@@ -67,6 +67,7 @@ public class Adventure {
         case "search" -> player1.searchContainer();
         case "equip" -> player1.equipWeapon(choice2);
         case "attack" -> player1.attack();
+        case "reload" -> player1.reload("mag");
         case "go" -> {
           switch (choice2) {
             case "north", "n" -> player1.goDirection(player1.getCurrentPosition().getNorth());

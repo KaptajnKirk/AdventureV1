@@ -200,6 +200,9 @@ public class uiPrint {
     System.out.println("The following enemies are in this room: " + enemy);
   }
 
+  public static void displayRoomEnemyDescription(String description) throws InterruptedException {
+    printer(description);
+  }
   public static void displayRoomContainer(Container container){
     System.out.println("You see the following containers in the room: " + container);
   }

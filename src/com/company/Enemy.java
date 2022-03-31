@@ -18,10 +18,6 @@ public class Enemy {
     this.corpse = corpse;
   }
 
-  public Weapon dropWeapon(){
-    return equippedWeapon;
-  }
-
   public int getDamage (){
     return equippedWeapon.getDamage();
   }

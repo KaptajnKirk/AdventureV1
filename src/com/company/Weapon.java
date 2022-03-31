@@ -13,7 +13,7 @@ public abstract class Weapon extends Item{
     return damage;
   }
 
-  public abstract void reload (int bullets);
+  public abstract void reload ();
 
   public abstract int attack ();
 
