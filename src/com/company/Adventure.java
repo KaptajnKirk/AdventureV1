@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Adventure {
-  //call map and scanner
+  //call map, scanner, music & player
   Map map = new Map();
   Player player1 = new Player(map.getRoom1());
   Scanner scanner = new Scanner(System.in);

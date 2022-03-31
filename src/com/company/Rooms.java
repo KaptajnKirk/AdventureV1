@@ -99,4 +99,8 @@ public class Rooms {
     this.enemy = enemy;
   }
 
+  public void removeEnemy(){
+    this.enemy = null;
+  }
+
 }

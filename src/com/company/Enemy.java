@@ -4,25 +4,34 @@ public class Enemy {
 
   private String name;
   private String description;
-  private int enemyHealth;
+  private int health;
   private Weapon equippedWeapon;
   private Container corpse;
+  private Rooms currentlocation;
 
 
-  public Enemy (String name, String description, int enemyHealth, Weapon equippedWeapon,Container corpse){
+  public Enemy (String name, String description, int health, Weapon equippedWeapon,Container corpse){
     this.name = name;
     this.description = description;
-    this.enemyHealth = enemyHealth;
+    this.health = health;
     this.equippedWeapon = equippedWeapon;
     this.corpse = corpse;
+  }
+
+  public Weapon dropWeapon(){
+    return equippedWeapon;
   }
 
   public int getDamage (){
     return equippedWeapon.getDamage();
   }
 
-  public int getEnemyHealth() {
-    return enemyHealth;
+  public void damageTaken(int damage){
+    this.health -= damage;
+  }
+
+  public int health() {
+    return health;
   }
 
   public String getName(){

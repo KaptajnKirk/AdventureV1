@@ -204,8 +204,8 @@ public class uiPrint {
     System.out.println("You see the following containers in the room: " + container);
   }
 
-  public static void displaySearchContainer() throws InterruptedException {
-    System.out.print("Searching container");
+  public static void displaySearchContainer(String name) throws InterruptedException {
+    System.out.print("Searching " + name);
     Thread.sleep(1000);
     System.out.print(".");
     Thread.sleep(1000);
@@ -216,8 +216,8 @@ public class uiPrint {
     System.out.println("\n\n");
   }
 
-  public static void displayCloseContainer() throws InterruptedException {
-    printer("Container is now closed.");
+  public static void displayCloseContainer(String name) throws InterruptedException {
+    printer(" is now closed.");
   }
 
   public static void displayEat(String name, int health) {

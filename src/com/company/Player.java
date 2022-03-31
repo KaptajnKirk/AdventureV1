@@ -139,10 +139,11 @@ public class Player {
   }
 
   public void searchContainer() throws InterruptedException {
+    String name = currentPosition.getChest().getName();
     if (currentPosition.getChest() == null) {
       System.out.println("There are no containers to search in this room!");
     } else {
-      uiPrint.displaySearchContainer();
+      uiPrint.displaySearchContainer(name);
       boolean run2 = true;
       while (run2) {
         System.out.println(currentPosition.getChest().getName());
@@ -159,7 +160,7 @@ public class Player {
           case "equip" -> equipWeapon(choice2);
           case "eat" -> eatItem(choice2);
           case "close" -> {
-            uiPrint.displayCloseContainer();
+            uiPrint.displayCloseContainer(name);
             run2 = false;
           }
           default -> uiPrint.invalidInput();
@@ -230,15 +231,29 @@ public class Player {
     } else System.out.println("Inventory: " + inventory);
   }
 
-  public void attack () {
+  public void enemyAttackBack(){
+    int enemyDamage = currentPosition.getEnemy().getDamage();
+    health -= enemyDamage;
+    System.out.println("The enemy attacks back and deals " + enemyDamage + " to you!");
+  }
+
+  public void weaponAttack(){
     int damageDealt;
+    equippedWeapon.attack();
+    damageDealt = equippedWeapon.getDamage();
+    currentPosition.getEnemy().damageTaken(damageDealt);
+    System.out.println("You dealt " + damageDealt + " damage");
+  }
+
+  public void attack () {
     if (equippedWeapon != null) {
       if (equippedWeapon.getMagBulletsAmount() == 0) {
         System.out.println("You have no more ammo left!");
       } else {
-        equippedWeapon.attack();
-        damageDealt = equippedWeapon.getDamage();
-        System.out.println("You dealt " + damageDealt + " damage");
+        weaponAttack();
+        if(currentPosition.getEnemy().health() > 0){
+          enemyAttackBack();
+        }
         if (equippedWeapon.getMagBulletsAmount() > 0) {
           equippedWeapon.shoot();
           System.out.println("You have " + equippedWeapon.getMagBulletsAmount() + " ammo left");
