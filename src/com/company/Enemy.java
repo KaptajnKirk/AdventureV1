@@ -7,7 +7,6 @@ public class Enemy {
   private int health;
   private Weapon equippedWeapon;
   private Container corpse;
-  private Rooms currentlocation;
 
 
   public Enemy (String name, String description, int health, Weapon equippedWeapon,Container corpse){

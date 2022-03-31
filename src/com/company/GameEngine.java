@@ -49,7 +49,7 @@ public class GameEngine {
     uiPrint.newPage();
   }
 
-  //The main game method with while loop that runs until user types exit
+  //The main game method with while loop that runs until user types exit, dies or kills the boss
   public void game() throws InterruptedException {
     gameIntro();
     boolean run = true;
@@ -60,7 +60,7 @@ public class GameEngine {
         case "inventory", "inv" -> player1.displayInventory();
         case "drop" -> player1.dropItem(choice2);
         case "help" -> uiPrint.displayHelpMenu();
-        case "look" -> player1.lookRoomWithName();
+        case "look" -> player1.lookRoomDescription();
         case "health" -> uiPrint.displayHealth(player1.getHealth());
         case "eat" -> player1.eatItem(choice2);
         case "search" -> player1.searchContainer(choice2);

@@ -133,6 +133,7 @@ public class Map {
     return room1;
   }
 
+  //used to check if the final boss is dead in GameEngine
   public Rooms getRoom5(){
     return room5;
   }

@@ -14,7 +14,6 @@ public class uiPrint {
   static final String RESET = "\u001B[0m";    // reset colour
 
   public uiPrint(){
-
   }
 
   //Displays the backstory during the intro
@@ -175,8 +174,8 @@ public class uiPrint {
   }
 
   //For when direction is null
-  public static void directionNull(){
-    System.out.println("You cannot go this way");
+  public static void directionNull() throws InterruptedException {
+    printer("You cannot go this way");
   }
 
   public static void displayRoomName(String name)throws InterruptedException{
@@ -188,7 +187,7 @@ public class uiPrint {
     printer("You walk into" + description + "\n");
   }
   //look command to display the room description to the user
-  public static void displayLookDescription(String description) {
+  public static void displayLookDescription(String description){
     System.out.println("You are in" + description + "\n");
   }
 
@@ -208,7 +207,7 @@ public class uiPrint {
   }
 
   public static void displaySearchContainer(String name) throws InterruptedException {
-    System.out.print("Searching " + name);
+    System.out.println("Searching " + name);
     Thread.sleep(1000);
     System.out.print(".");
     Thread.sleep(1000);
@@ -220,7 +219,7 @@ public class uiPrint {
   }
 
   public static void displayCloseContainer(String name) throws InterruptedException {
-    printer(name + " is now closed.");
+    printer("You moved away from the " + name);
   }
 
   public static void displayEat(String name, int health) {
@@ -230,7 +229,6 @@ public class uiPrint {
     }else{
       System.out.println("You have gained " + health + " HP");
     }
-
   }
 
   public static void displayGameOver() throws InterruptedException {
