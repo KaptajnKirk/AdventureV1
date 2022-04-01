@@ -38,25 +38,25 @@ public class uiPrint {
   public static void displayTitleCard() throws InterruptedException {
     newPage();
     System.out.println(BLUE + "███████╗███████╗ ██████╗ █████╗ ██████╗ ███████╗    ███████╗██████╗  ██████╗ ███╗   ███╗     █████╗ ██╗   ██╗██████╗  ██████╗ ██████╗  █████╗");
-    //Thread.sleep(500);
+    Thread.sleep(500);
     System.out.println("██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝    ██╔════╝██╔══██╗██╔═══██╗████╗ ████║    ██╔══██╗██║   ██║██╔══██╗██╔═══██╗██╔══██╗██╔══██╗");
-    //Thread.sleep(500);
+    Thread.sleep(500);
     System.out.println("█████╗  ███████╗██║     ███████║██████╔╝█████╗      █████╗  ██████╔╝██║   ██║██╔████╔██║    ███████║██║   ██║██████╔╝██║   ██║██████╔╝███████║");
-    //Thread.sleep(500);
+    Thread.sleep(500);
     System.out.println("██╔══╝  ╚════██║██║     ██╔══██║██╔═══╝ ██╔══╝      ██╔══╝  ██╔══██╗██║   ██║██║╚██╔╝██║    ██╔══██║██║   ██║██╔══██╗██║   ██║██╔══██╗██╔══██║");
-    //Thread.sleep(500);
+    Thread.sleep(500);
     System.out.println("███████╗███████║╚██████╗██║  ██║██║     ███████╗    ██║     ██║  ██║╚██████╔╝██║ ╚═╝ ██║    ██║  ██║╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║");
-    //Thread.sleep(500);
+    Thread.sleep(500);
     System.out.println("╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚══════╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝" + RESET);
-    //Thread.sleep(500);
+    Thread.sleep(500);
     System.out.println();
-    //Thread.sleep(500);
+    Thread.sleep(500);
     System.out.println();
-    //Thread.sleep(500);
+    Thread.sleep(500);
     System.out.println();
-    //Thread.sleep(500);
+    Thread.sleep(500);
     System.out.println();
-    //Thread.sleep(500);
+    Thread.sleep(500);
   }
 
   //Displays ASCII art endcard
@@ -112,19 +112,19 @@ public class uiPrint {
   public static void displayHelpMenu() {
 
     System.out.println(CYAN + "╔═══════════════════════════════════════════════════HELP═══════════════════════════════════════════════╗" + RESET);
-    System.out.println("\n\texit\t\t\t- Exit the game");
-    System.out.println("\tlook\t\t\t- Get the description of current room");
-    System.out.println("\tgo 'direction'\t- Go in the given direction(ex. go north)");
-    System.out.println("\thelp\t\t\t- Get this help menu");
-    System.out.println("\ttake 'item'\t\t- Place a given item in your inventory ");
-    System.out.println("\tdrop 'item'\t\t- Drop the given item on the floor in current room");
-    System.out.println("\tinventory\t\t- Open your inventory");
-    System.out.println("\tsearch 'container'\t\t\t- Search nearby container");
-    System.out.println("\tclose\t\t\t- Close nearby container");
-    System.out.println("\thealth\t\t\t- Display current HP");
-    System.out.println("\teat 'food'\t\t- Eat given food");
-    System.out.println("\tequip 'weapon'\t- Equip given weapon");
-    System.out.println("\tattack\t\t\t- Attack with equipped weapon");
+    System.out.println("\n\texit\t\t\t\t- Exit the game");
+    System.out.println("\tlook\t\t\t\t- Get the description of current room");
+    System.out.println("\tgo 'direction'\t\t- Go in the given direction(ex. go north)");
+    System.out.println("\thelp\t\t\t\t- Get this help menu");
+    System.out.println("\ttake 'item'\t\t\t- Place a given item in your inventory ");
+    System.out.println("\tdrop 'item'\t\t\t- Drop the given item on the floor in current room");
+    System.out.println("\tinventory\t\t\t- Open your inventory");
+    System.out.println("\tsearch 'container'\t- Search nearby container");
+    System.out.println("\tclose\t\t\t\t- Close nearby container");
+    System.out.println("\thealth\t\t\t\t- Display current HP");
+    System.out.println("\teat 'food'\t\t\t- Eat given food");
+    System.out.println("\tequip 'weapon'\t\t- Equip given weapon");
+    System.out.println("\tattack\t\t\t\t- Attack with equipped weapon");
     System.out.println(CYAN + "\n╚══════════════════════════════════════════════════════════════════════════════════════════════════════╝" + RESET);
   }
 
@@ -207,7 +207,7 @@ public class uiPrint {
   }
 
   public static void displaySearchContainer(String name) throws InterruptedException {
-    System.out.println("Searching " + name);
+    System.out.print("Searching " + name);
     Thread.sleep(1000);
     System.out.print(".");
     Thread.sleep(1000);
@@ -271,8 +271,8 @@ public class uiPrint {
 
   public static void winGame () throws InterruptedException {
     newPage();
-    System.out.println("Congratulations! You killed the reaper leviathan, and can now escape the Aurora.\nNow the real challenge begins in the oceans of Planet 4546B... ");
-    Thread.sleep(3500);
+    printer("Congratulations! You killed the reaper leviathan, and can now escape the Aurora.\nNow the real challenge begins in the oceans of Planet 4546B... ");
+    Thread.sleep(5000);
     newPage();
     System.out.println( GREEN +"██    ██  ██████  ██    ██     ██     ██  ██████  ███    ██ ██ ");
     Thread.sleep(500);
@@ -327,7 +327,7 @@ public class uiPrint {
   public static void printer(String text) throws InterruptedException {
     for (int i = 0; i <= text.length()-1; i++){
       System.out.print(text.charAt(i));
-      Thread.sleep(0);
+      Thread.sleep(5);
     }
     System.out.println();
   }

@@ -24,7 +24,7 @@ public class GameEngine {
   }
 
   public void gameIntro() throws InterruptedException {
-    //music.playMusic();
+    music.playMusic();
     uiPrint.displayTitleCard();
     uiPrint.enterPromt();
     String next = scanner.nextLine();
